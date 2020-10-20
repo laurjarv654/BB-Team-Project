@@ -22,6 +22,13 @@ namespace BrickBreaker
 
         Random random = new Random();
 
+        //variables for powerup
+        int powerX;
+        int powerY = 0;
+        int powerXSpeed = 8;
+        int powerYSpeed = 8;
+        int powerUpSize = 20;
+
         //player1 button control keys - DO NOT CHANGE
         Boolean leftArrowDown, rightArrowDown;
 
@@ -33,9 +40,11 @@ namespace BrickBreaker
         // Paddle and Ball objects
         Paddle paddle;
         Ball ball;
+        PowerUp power;
 
         // list of all blocks for current level
         List<Block> blocks = new List<Block>();
+        List<Ball> balls = new List<Ball>();
         
 
         // Brushes
@@ -48,6 +57,9 @@ namespace BrickBreaker
 
         Stopwatch myWatch = new Stopwatch();
 
+        int ballX, ballY;
+        int ballSize = 20;
+
         #endregion
 
         public GameScreen()
@@ -58,21 +70,79 @@ namespace BrickBreaker
 
         public void BreannaPowerUp ()
         {
-            //variables for powerup
-            int powerX = random.Next(30, this.Width - 29);
-            int powerXSpeed = 8;
-            int powerYSpeed = 8;
-            int powerUpSize = 20;
 
-            PowerUp power = new PowerUp(powerX, 0, powerXSpeed, powerYSpeed, powerUpSize);
-
-            power.Move();
+            if (power.x == powerX)
+            {
+                power.Move();
+                powerX = power.x;
+                powerY = power.y;
+            }
+            else if (power.y == powerY)
+            {
+                power.Move();
+                powerX = power.x;
+                powerY = power.y;
+            }
+            
 
             if (power.x < 0 || power.x > this.Width)
             {
-
+                power.XCollision();
             }
             else if (power.y < 0 || power.y > this.Height)
+            {
+                power.YCollision();
+            }
+
+            Rectangle powerUpRec = new Rectangle(power.x, power.y, power.size, power.size);
+            Rectangle paddleRec = new Rectangle(paddle.x, paddle.y, paddle.width, paddle.height);
+
+            if (powerUpRec.IntersectsWith(paddleRec))
+            {
+                power.PaddleCollision(paddle, power);
+
+                if (Form1.powerUp == true && xSpeed > 4 && ySpeed > 4)
+                {
+                    xSpeed--;
+                    ySpeed--;
+                }
+                else if (Form1.powerUp == false)
+                {
+                    ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
+                    balls.Add(ball);
+                }
+            }
+
+            foreach (Ball a in balls)
+            {
+                ball.Move();
+                ball.WallCollision(this);
+                ball.PaddleCollision(paddle, leftArrowDown, rightArrowDown);
+            }
+            for (int i = 1; i < balls.Count(); i++)
+            {
+                balls[i].BottomCollision(this);
+                if (Form1.didCollide == true)
+                {
+                    balls.RemoveAt(i);
+                }
+            }
+
+            foreach (Block b in blocks)
+            {
+                if (ball.BlockCollision(b))
+                {
+                    blocks.Remove(b);
+
+                    if (blocks.Count == 0)
+                    {
+                        gameTimer.Enabled = false;
+                        OnEnd();
+                    }
+
+                    break;
+                }
+            }
 
 
 
@@ -81,6 +151,9 @@ namespace BrickBreaker
 
         public void OnStart()
         {
+            powerX = random.Next(30, this.Width - 29);
+            power = new PowerUp(powerX, powerY, powerXSpeed, powerYSpeed, powerUpSize);
+
             //set life counter
             lives = 3;
 
@@ -96,13 +169,11 @@ namespace BrickBreaker
             paddle = new Paddle(paddleX, paddleY, paddleWidth, paddleHeight, paddleSpeed, Color.White);
 
             // setup starting ball values
-            int ballX = this.Width / 2 - 10;
-            int ballY = this.Height - paddle.height - 80;
+            ballX = this.Width / 2 - 10;
+            ballY = this.Height - paddle.height - 80;
 
-            // Creates a new ball
-            
-            int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
+            balls.Add(ball);
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
             
@@ -172,20 +243,25 @@ namespace BrickBreaker
                 paddle.Move("right");
             }
 
-            // Move ball
-            ball.Move();
+            //// Move ball
+            //ball.Move();
 
             // Check for collision with top and side walls
             ball.WallCollision(this);
 
             // Check for ball hitting bottom of screen
-            if (ball.BottomCollision(this))
+            if (balls[0].BottomCollision(this))
             {
                 lives--;
 
                 // Moves the ball back to origin
                 ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
                 ball.y = (this.Height - paddle.height) - 85;
+                if (balls.Count > 1)
+                {
+                    balls.RemoveRange(2, balls.Count());
+                }
+               
 
                 if (lives == 0)
                 {
@@ -247,7 +323,13 @@ namespace BrickBreaker
             }
 
             // Draws ball
-            e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
+            foreach (Ball a in balls)
+            {
+                e.Graphics.FillRectangle(ballBrush, a.x, a.y, a.size, a.size);
+            }
+            
+
+            e.Graphics.FillRectangle(powerUpBrush, power.x, power.y, power.size, power.size);
 
             
         }

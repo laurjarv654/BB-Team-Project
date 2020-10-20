@@ -29,11 +29,14 @@ namespace BrickBreaker
             y = y + ySpeed;
         }
 
-        public void Collision()
+        public void YCollision()
         {
             ySpeed *= -1;
-            xSpeed *= -1;
             
+        }
+        public void XCollision()
+        {
+            xSpeed *= -1;
         }
 
         public void PaddleCollision(Paddle p, PowerUp up)

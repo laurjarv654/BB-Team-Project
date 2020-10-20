@@ -8,6 +8,7 @@ namespace BrickBreaker
     {
         public int x, y, xSpeed, ySpeed, size;
         public Color colour;
+        
 
         public static Random rand = new Random();
 
@@ -23,8 +24,8 @@ namespace BrickBreaker
 
         public void Move()
         {
-            x = x + xSpeed;
-            y = y + ySpeed;
+            x = x - xSpeed;
+            y = y - ySpeed;
         }
 
         public bool BlockCollision(Block b)
@@ -80,14 +81,14 @@ namespace BrickBreaker
 
         public bool BottomCollision(UserControl UC)
         {
-            Boolean didCollide = false;
+            Form1.didCollide = false;
 
             if (y >= UC.Height)
             {
-                didCollide = true;
+                Form1.didCollide = true;
             }
 
-            return didCollide;
+            return Form1.didCollide;
         }
 
     }

@@ -4,11 +4,12 @@ using System.Windows.Forms;
 
 namespace BrickBreaker
 {
-    //Jayden 
+    
     public class Ball
     {
         public int x, y, xSpeed, ySpeed, size;
         public Color colour;
+
 
         public static Random rand = new Random();
 
@@ -21,7 +22,7 @@ namespace BrickBreaker
             size = _ballSize;
                
         }
-
+        
         public void Move()
         {
             x = x + xSpeed;
@@ -32,28 +33,145 @@ namespace BrickBreaker
         {
             Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
             Rectangle ballRec = new Rectangle(x, y, size, size);
-
+            Rectangle ballRecL = new Rectangle(x, y, size, size);
+            Rectangle ballRecW = new Rectangle(x, y, size, size);
+            Rectangle ballRecH = new Rectangle(x, y, size, size);
             if (ballRec.IntersectsWith(blockRec))
             {
                 ySpeed *= -1;
             }
-
+            if(ballRecL.IntersectsWith(blockRec))
+            {
+                ySpeed *= -1;  
+            }
+            if(ballRecW.IntersectsWith(blockRec))
+            {
+                ySpeed *= -1;
+            }
+            if(ballRecH.IntersectsWith(blockRec))
+            {
+                ySpeed *= -1;
+            }
             return blockRec.IntersectsWith(ballRec);         
         }
 
         public void PaddleCollision(Paddle p, bool pMovingLeft, bool pMovingRight)
         {
             Rectangle ballRec = new Rectangle(x, y, size, size);
+            Rectangle ballRecL = new Rectangle(x, y, size, size);
+            Rectangle ballRecW = new Rectangle(x, y, size, size);
+            Rectangle ballRecH = new Rectangle(x, y, size, size);
             Rectangle paddleRec = new Rectangle(p.x, p.y, p.width, p.height);
-
+            Rectangle paddleRecW = new Rectangle(p.x, p.y, p.width, p.height); 
+            Rectangle paddleRecL = new Rectangle(p.x, p.y, p.width, p.height);
             if (ballRec.IntersectsWith(paddleRec))
             {
+
                 if (y + size >= p.y)
                 {
                     ySpeed *= -1;
                 }
 
                 if (pMovingLeft)
+
+                    xSpeed = -Math.Abs(xSpeed);
+                else if (pMovingRight)
+                    xSpeed = Math.Abs(xSpeed);
+            }
+            if (ballRec.IntersectsWith(paddleRecW))
+            {
+
+                if (y + size >= p.y)
+                {
+                    ySpeed *= -1;
+                }
+
+                if (pMovingLeft)
+
+                    xSpeed = -Math.Abs(xSpeed);
+                else if (pMovingRight)
+                    xSpeed = Math.Abs(xSpeed);
+            }
+            if (ballRecL.IntersectsWith(paddleRecL))
+            {
+
+                if (y + size >= p.y)
+                {
+                    ySpeed *= -1;
+                }
+
+                if (pMovingLeft)
+
+                    xSpeed = -Math.Abs(xSpeed);
+                else if (pMovingRight)
+                    xSpeed = Math.Abs(xSpeed);
+            }
+            if (ballRecL.IntersectsWith(paddleRecW))
+            {
+
+                if (y + size >= p.y)
+                {
+                    ySpeed *= -1;
+                }
+
+                if (pMovingLeft)
+
+                    xSpeed = -Math.Abs(xSpeed);
+                else if (pMovingRight)
+                    xSpeed = Math.Abs(xSpeed);
+            }
+            if (ballRecW.IntersectsWith(paddleRecL))
+            {
+
+                if (y + size >= p.y)
+                {
+                    ySpeed *= -1;
+                }
+
+                if (pMovingLeft)
+
+                    xSpeed = -Math.Abs(xSpeed);
+                else if (pMovingRight)
+                    xSpeed = Math.Abs(xSpeed);
+            }
+            if (ballRecW.IntersectsWith(paddleRecL))
+            {
+
+                if (y + size >= p.y)
+                {
+                    ySpeed *= -1;
+                }
+
+                if (pMovingLeft)
+
+                    xSpeed = -Math.Abs(xSpeed);
+                else if (pMovingRight)
+                    xSpeed = Math.Abs(xSpeed);
+            }
+            if (ballRecH.IntersectsWith(paddleRecW))
+            {
+
+                if (y + size >= p.y)
+                {
+                    ySpeed *= -1;
+                }
+
+                if (pMovingLeft)
+
+                    xSpeed = -Math.Abs(xSpeed);
+                else if (pMovingRight)
+                    xSpeed = Math.Abs(xSpeed);
+            }
+            if (ballRecH.IntersectsWith(paddleRecL))
+            {
+
+                if (y + size >= p.y)
+                {
+                    ySpeed *= -1;
+                }
+
+                if (pMovingLeft)
+
                     xSpeed = -Math.Abs(xSpeed);
                 else if (pMovingRight)
                     xSpeed = Math.Abs(xSpeed);

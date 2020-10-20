@@ -38,7 +38,6 @@ namespace BrickBreaker
         SolidBrush blockBrush = new SolidBrush(Color.Red);
 
         #endregion
-
         public GameScreen()
         {
             InitializeComponent();
@@ -71,7 +70,6 @@ namespace BrickBreaker
             int ySpeed = 6;
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
-
             #region Creates blocks for generic level. Need to replace with code that loads levels.
             
             //TODO - replace all the code in this region eventually with code that loads levels from xml files
@@ -160,7 +158,7 @@ namespace BrickBreaker
 
             // Check for collision of ball with paddle, (incl. paddle movement)
             ball.PaddleCollision(paddle, leftArrowDown, rightArrowDown);
-
+            JaydenPaddelMethod(); 
             // Check if ball has collided with any blocks
             foreach (Block b in blocks)
             {
@@ -168,20 +166,36 @@ namespace BrickBreaker
                 {
                     blocks.Remove(b);
 
+                    JaydenBallMethod();
+
                     if (blocks.Count == 0)
                     {
                         gameTimer.Enabled = false;
                         OnEnd();
                     }
-
+                    
                     break;
                 }
+                
             }
 
             //redraw the screen
             Refresh();
         }
+        public void JaydenBallMethod()
+        {
 
+           
+      
+        }
+
+
+        public void JaydenPaddelMethod()
+        {
+          
+         
+
+        }
         public void OnEnd()
         {
             // Goes to the game over screen

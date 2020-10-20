@@ -20,10 +20,13 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        Boolean leftArrowDown, rightArrowDown;
-
+        public static Boolean leftArrowDown, rightArrowDown, pKeyDown, pause;
+       
         // Game values
         int lives;
+        int score;
+
+        public static int width, height;
 
         // Paddle and Ball objects
         Paddle paddle;
@@ -50,6 +53,8 @@ namespace BrickBreaker
         {
             //set life counter
             lives = 3;
+
+            int score = 0;
 
             //set all button presses to false.
             leftArrowDown = rightArrowDown = false;
@@ -88,6 +93,7 @@ namespace BrickBreaker
 
             #endregion
 
+
             // start the game engine loop
             gameTimer.Enabled = true;
         }
@@ -102,6 +108,10 @@ namespace BrickBreaker
                     break;
                 case Keys.Right:
                     rightArrowDown = true;
+                    break;
+                case Keys.P:
+                    pKeyDown = true;
+                    Pause();
                     break;
                 default:
                     break;
@@ -123,7 +133,6 @@ namespace BrickBreaker
                     break;
             }
         }
-
         private void gameTimer_Tick(object sender, EventArgs e)
         {
             // Move the paddle
@@ -146,7 +155,7 @@ namespace BrickBreaker
             if (ball.BottomCollision(this))
             {
                 lives--;
-
+                
                 // Moves the ball back to origin
                 ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
                 ball.y = (this.Height - paddle.height) - 85;
@@ -167,13 +176,13 @@ namespace BrickBreaker
                 if (ball.BlockCollision(b))
                 {
                     blocks.Remove(b);
-
+                    score++;
+                    
                     if (blocks.Count == 0)
                     {
                         gameTimer.Enabled = false;
                         OnEnd();
                     }
-
                     break;
                 }
             }
@@ -181,16 +190,34 @@ namespace BrickBreaker
             //redraw the screen
             Refresh();
         }
+        public void Pause()
+        {
+            if(gameTimer.Enabled == true)
+            {
+
+                gameTimer.Enabled = false;
+                DialogResult dr = PauseForm.Show();
+
+                if (dr == DialogResult.Cancel)
+                {
+                    gameTimer.Enabled = true;
+                }
+                else if(dr == DialogResult.Abort)   
+                {
+                    Application.Exit();
+                }
+            }
+        }
 
         public void OnEnd()
         {
             // Goes to the game over screen
             Form form = this.FindForm();
-            MenuScreen ps = new MenuScreen();
+            MenuScreen ms = new MenuScreen();
             
-            ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
+            ms.Location = new Point((form.Width - ms.Width) / 2, (form.Height - ms.Height) / 2);
 
-            form.Controls.Add(ps);
+            form.Controls.Add(ms);
             form.Controls.Remove(this);
         }
 

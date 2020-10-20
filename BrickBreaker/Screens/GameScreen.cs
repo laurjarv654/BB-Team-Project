@@ -1,6 +1,6 @@
-﻿/*  Created by: 
+﻿/*  Created by: Breanna Subject
  *  Project: Brick Breaker
- *  Date: 
+ *  Date: 10/20/2020
  */ 
 using System;
 using System.Collections.Generic;
@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using System.Diagnostics;
 
 namespace BrickBreaker
 {
@@ -19,11 +20,15 @@ namespace BrickBreaker
     {
         #region global values
 
+        Random random = new Random();
+
         //player1 button control keys - DO NOT CHANGE
         Boolean leftArrowDown, rightArrowDown;
 
         // Game values
         int lives;
+        int xSpeed = 6;
+        int ySpeed = 6;
 
         // Paddle and Ball objects
         Paddle paddle;
@@ -31,11 +36,17 @@ namespace BrickBreaker
 
         // list of all blocks for current level
         List<Block> blocks = new List<Block>();
+        
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
         SolidBrush blockBrush = new SolidBrush(Color.Red);
+        SolidBrush powerUpBrush = new SolidBrush(Color.Aquamarine);
+
+        //timer for powerup spawn
+
+        Stopwatch myWatch = new Stopwatch();
 
         #endregion
 
@@ -45,6 +56,28 @@ namespace BrickBreaker
             OnStart();
         }
 
+        public void BreannaPowerUp ()
+        {
+            //variables for powerup
+            int powerX = random.Next(30, this.Width - 29);
+            int powerXSpeed = 8;
+            int powerYSpeed = 8;
+            int powerUpSize = 20;
+
+            PowerUp power = new PowerUp(powerX, 0, powerXSpeed, powerYSpeed, powerUpSize);
+
+            power.Move();
+
+            if (power.x < 0 || power.x > this.Width)
+            {
+
+            }
+            else if (power.y < 0 || power.y > this.Height)
+
+
+
+
+        }
 
         public void OnStart()
         {
@@ -67,8 +100,7 @@ namespace BrickBreaker
             int ballY = this.Height - paddle.height - 80;
 
             // Creates a new ball
-            int xSpeed = 6;
-            int ySpeed = 6;
+            
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
@@ -87,6 +119,8 @@ namespace BrickBreaker
             }
 
             #endregion
+
+            myWatch.Start();
 
             // start the game engine loop
             gameTimer.Enabled = true;
@@ -126,6 +160,8 @@ namespace BrickBreaker
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            BreannaPowerUp();
+
             // Move the paddle
             if (leftArrowDown && paddle.x > 0)
             {
@@ -178,6 +214,9 @@ namespace BrickBreaker
                 }
             }
 
+
+           
+
             //redraw the screen
             Refresh();
         }
@@ -185,6 +224,7 @@ namespace BrickBreaker
         public void OnEnd()
         {
             // Goes to the game over screen
+            myWatch.Stop();
             Form form = this.FindForm();
             MenuScreen ps = new MenuScreen();
             
@@ -208,6 +248,8 @@ namespace BrickBreaker
 
             // Draws ball
             e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
+
+            
         }
     }
 }

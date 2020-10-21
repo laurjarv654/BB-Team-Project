@@ -44,7 +44,6 @@ namespace BrickBreaker
 
         // list of all blocks for current level
         List<Block> blocks = new List<Block>();
-        //List<Ball> balls = new List<Ball>();
         
 
         // Brushes
@@ -108,26 +107,9 @@ namespace BrickBreaker
                 }
                 else if (Form1.powerUp == false)
                 {
-                    //ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
-                    //balls.Add(ball);
+
                 }
             }
-
-            //foreach (Ball a in balls)
-            //{
-            //    ball.Move();
-            //    ball.WallCollision(this);
-            //    ball.PaddleCollision(paddle, leftArrowDown, rightArrowDown);
-            //}
-            //for (int i = 1; i < balls.Count(); i++)
-            //{
-            //    balls[i].BottomCollision(this);
-            //    if (Form1.didCollide == true)
-            //    {
-            //        balls.RemoveAt(i);
-            //    }
-            //}
-
 
 
 
@@ -304,12 +286,7 @@ namespace BrickBreaker
                 e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
             }
 
-            // Draws ball
-            //foreach (Ball a in balls)
-            //{
-            //    e.Graphics.FillRectangle(ballBrush, a.x, a.y, a.size, a.size);
-            //}
-
+            
             e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
 
             e.Graphics.FillRectangle(powerUpBrush, power.x, power.y, power.size, power.size);

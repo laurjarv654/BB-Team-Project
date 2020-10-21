@@ -36,8 +36,8 @@ namespace BrickBreaker
         
         public void Move()
         {
-            x = x + xSpeed;
-            y = y + ySpeed;
+            x = x - xSpeed;
+            y = y - ySpeed;
         }
 
         public bool BlockCollision(Block b)
@@ -153,14 +153,20 @@ namespace BrickBreaker
 
         public bool BottomCollision(UserControl UC)
         {
-            Boolean didCollide = false;
+            Form1.didCollide = false;
 
             if (y >= UC.Height)
             {
-                didCollide = true;
+                Form1.didCollide = true;
             }
 
-            return didCollide;
+            return Form1.didCollide;
+        }
+
+        public void SheildCollistion ()
+        {
+            ySpeed *= -1;
+            xSpeed *= -1;
         }
     }
 }

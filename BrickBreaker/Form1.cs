@@ -14,7 +14,12 @@ namespace BrickBreaker
 {
     public partial class Form1 : Form
     {
+
+        public static int powerUp;
+        public static bool didCollide;
+
         public static int width, height;
+
         public Form1()
         {
             InitializeComponent();

@@ -104,6 +104,7 @@
     <Compile Include="Screens\GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="PowerUp.cs" />
     <EmbeddedResource Include="Screens\ControlScreen.resx">
       <DependentUpon>ControlScreen.cs</DependentUpon>
     </EmbeddedResource>

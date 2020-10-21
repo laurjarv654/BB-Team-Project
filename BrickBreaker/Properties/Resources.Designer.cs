@@ -99,9 +99,9 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Paddle {
+        internal static System.IO.UnmanagedMemoryStream PaddleNoise {
             get {
-                return ResourceManager.GetStream("Paddle", resourceCulture);
+                return ResourceManager.GetStream("PaddleNoise", resourceCulture);
             }
         }
     }

@@ -3,13 +3,13 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace BrickBreaker
-{
+{ //designed by Jayden Roddick
     
     public class Ball
     {
         public int x, y, xSpeed, ySpeed, size;
         public Color colour;
-
+        
 
         public static Random rand = new Random();
 
@@ -21,6 +21,17 @@ namespace BrickBreaker
             ySpeed = _ySpeed;
             size = _ballSize;
                
+        }
+        public void MoveWithPaddle(string direction)
+        {
+            if (direction == "left")
+            {
+                x -= xSpeed;
+            }
+            if (direction == "right")
+            {
+                x += xSpeed;
+            }
         }
         
         public void Move()
@@ -114,7 +125,8 @@ namespace BrickBreaker
                 }
                 else if(ballRec.IntersectsWith(paddleRecSL))
                 {
-
+                    xSpeed *= -1;
+                    ySpeed *= -1;
                 }
 
             }
@@ -150,6 +162,5 @@ namespace BrickBreaker
 
             return didCollide;
         }
-
     }
 }

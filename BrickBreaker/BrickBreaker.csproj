@@ -158,7 +158,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\PaddleNoise.wav" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LoseLife.wav" />
   </ItemGroup>

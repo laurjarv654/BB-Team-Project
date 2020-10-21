@@ -105,14 +105,18 @@ namespace BrickBreaker
             {
                 power.PaddleCollision(paddle, power);
 
-                if (Form1.powerUp == true && xSpeed >= 3 && ySpeed >= 3)
+                if (Form1.powerUp == 1 && xSpeed >= 3 && ySpeed >= 3)
                 {
-                    xSpeed--;
-                    ySpeed--;
+                    xSpeed = xSpeed - 2;
+                    ySpeed = ySpeed - 2;
                 }
-                else if (Form1.powerUp == false)
+                else if (Form1.powerUp == 2)
                 {
                     sheildSpawn = true;
+                }
+                else if (Form1.powerUp == 3 && paddle.width == 20)
+                {
+                    paddle.width = paddle.width + 36;
                 }
             }
 

@@ -12,7 +12,7 @@ namespace BrickBreaker
 {
     public partial class Form1 : Form
     {
-        public static bool powerUp;
+        public static int powerUp;
         public static bool didCollide;
         public Form1()
         {

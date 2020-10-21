@@ -46,23 +46,24 @@ namespace BrickBreaker
 
             if (powerUpRec.IntersectsWith(paddleRec))
             {
-                int value = randGen.Next(1, 101);
+                int value = randGen.Next(1, 3);
 
-                if (value <= 50)
+                if (value == 1)
                 {
-                    int power = randGen.Next(1, 3);
+                    Form1.powerUp = 1;
+                    ySpeed *= -1;
+                    xSpeed *= -1;
 
-                    if (power == 1)
-                    {
-                        Form1.powerUp = true;
-                    }
-                    else
-                    {
-                        Form1.powerUp = false; 
-                    }
                 }
-                else 
+                else if (value == 2)
                 {
+                    Form1.powerUp = 2;
+                    ySpeed *= -1;
+                    xSpeed *= -1;
+                }
+                else
+                {
+                    Form1.powerUp = 3;
                     ySpeed *= -1;
                     xSpeed *= -1;
                 }

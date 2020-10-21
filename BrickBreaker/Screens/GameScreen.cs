@@ -1,6 +1,6 @@
-﻿/*  Created by: Breanna Subject
+﻿/*  Created by: 
  *  Project: Brick Breaker
- *  Date: 10/20/2020
+ *  Date: 10/21/2020
  */ 
 using System;
 using System.Collections.Generic;
@@ -44,7 +44,7 @@ namespace BrickBreaker
 
         // list of all blocks for current level
         List<Block> blocks = new List<Block>();
-        List<Ball> balls = new List<Ball>();
+        //List<Ball> balls = new List<Ball>();
         
 
         // Brushes
@@ -108,41 +108,26 @@ namespace BrickBreaker
                 }
                 else if (Form1.powerUp == false)
                 {
-                    ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
-                    balls.Add(ball);
+                    //ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
+                    //balls.Add(ball);
                 }
             }
 
-            foreach (Ball a in balls)
-            {
-                ball.Move();
-                ball.WallCollision(this);
-                ball.PaddleCollision(paddle, leftArrowDown, rightArrowDown);
-            }
-            for (int i = 1; i < balls.Count(); i++)
-            {
-                balls[i].BottomCollision(this);
-                if (Form1.didCollide == true)
-                {
-                    balls.RemoveAt(i);
-                }
-            }
+            //foreach (Ball a in balls)
+            //{
+            //    ball.Move();
+            //    ball.WallCollision(this);
+            //    ball.PaddleCollision(paddle, leftArrowDown, rightArrowDown);
+            //}
+            //for (int i = 1; i < balls.Count(); i++)
+            //{
+            //    balls[i].BottomCollision(this);
+            //    if (Form1.didCollide == true)
+            //    {
+            //        balls.RemoveAt(i);
+            //    }
+            //}
 
-            foreach (Block b in blocks)
-            {
-                if (ball.BlockCollision(b))
-                {
-                    blocks.Remove(b);
-
-                    if (blocks.Count == 0)
-                    {
-                        gameTimer.Enabled = false;
-                        OnEnd();
-                    }
-
-                    break;
-                }
-            }
 
 
 
@@ -173,7 +158,7 @@ namespace BrickBreaker
             ballY = this.Height - paddle.height - 80;
 
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
-            balls.Add(ball);
+            //balls.Add(ball);
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
             
@@ -244,23 +229,20 @@ namespace BrickBreaker
             }
 
             //// Move ball
-            //ball.Move();
+            ball.Move();
 
             // Check for collision with top and side walls
             ball.WallCollision(this);
 
             // Check for ball hitting bottom of screen
-            if (balls[0].BottomCollision(this))
+            if (ball.BottomCollision(this))
             {
                 lives--;
 
                 // Moves the ball back to origin
                 ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
                 ball.y = (this.Height - paddle.height) - 85;
-                if (balls.Count > 1)
-                {
-                    balls.RemoveRange(2, balls.Count());
-                }
+                
                
 
                 if (lives == 0)
@@ -323,11 +305,12 @@ namespace BrickBreaker
             }
 
             // Draws ball
-            foreach (Ball a in balls)
-            {
-                e.Graphics.FillRectangle(ballBrush, a.x, a.y, a.size, a.size);
-            }
-            
+            //foreach (Ball a in balls)
+            //{
+            //    e.Graphics.FillRectangle(ballBrush, a.x, a.y, a.size, a.size);
+            //}
+
+            e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
 
             e.Graphics.FillRectangle(powerUpBrush, power.x, power.y, power.size, power.size);
 

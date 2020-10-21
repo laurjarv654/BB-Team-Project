@@ -65,13 +65,31 @@
   <ItemGroup>
     <Compile Include="Ball.cs" />
     <Compile Include="Block.cs" />
+    <Compile Include="Screens\ControlScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\ControlScreen.Designer.cs">
+      <DependentUpon>ControlScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\HighscoreScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\HighscoreScreen.Designer.cs">
+      <DependentUpon>HighscoreScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Paddle.cs" />
+    <Compile Include="PauseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PauseForm.Designer.cs">
+      <DependentUpon>PauseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\MenuScreen.cs">
@@ -86,8 +104,14 @@
     <Compile Include="Screens\GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Screens\ControlScreen.resx">
+      <DependentUpon>ControlScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PauseForm.resx">
+      <DependentUpon>PauseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -99,6 +123,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Screens\HighscoreScreen.resx">
+      <DependentUpon>HighscoreScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\MenuScreen.resx">
       <DependentUpon>MenuScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,7 +159,67 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\PaddleNoise.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoseLife.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BrickNoise.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GameOver.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lose.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Brick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blueBrick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Controls Title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gameoverTitle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\greenBrick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Paddle %28smaller%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Paddle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pausedTitle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redBrick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shieldPowerBall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shieldPowerUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\highscoresTitle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\highscoreBorder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\controlsBorder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -41,7 +41,7 @@ namespace BrickBreaker
 
         public void PaddleCollision(Paddle p, PowerUp up)
         {
-            Rectangle powerUpRec = new Rectangle(x, y, size, size);
+            Rectangle powerUpRec = new Rectangle(up.x, up.y, up.size, up.size);
             Rectangle paddleRec = new Rectangle(p.x, p.y, p.width, p.height);
 
             if (powerUpRec.IntersectsWith(paddleRec))

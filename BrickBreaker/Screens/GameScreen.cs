@@ -25,11 +25,14 @@ namespace BrickBreaker
         Random random = new Random();
 
         //variables for powerup
-        int powerX;
-        int powerY = 0;
+        int speedX, sizeX, bottomX;
+        int speedY = 0;
+        int sizeY = 0;
+        int bottomY = 0;
         int powerXSpeed = 8;
         int powerYSpeed = 8;
         int powerUpSize = 20;
+        int paddleWidth = 80;
 
         //player1 button control keys - DO NOT CHANGE
         Boolean ballStart = false;
@@ -47,11 +50,12 @@ namespace BrickBreaker
         // Paddle and Ball objects
         Paddle paddle;
         Ball ball;
-        PowerUp power;
+        PowerUp speed, size, bottom;
        
 
         // list of all blocks for current level
         List<Block> blocks = new List<Block>();
+        List<PowerUp> powerUps = new List<PowerUp>();
         
 
         // Brushes
@@ -80,98 +84,135 @@ namespace BrickBreaker
         {
             
             Rectangle ballRec = new Rectangle(ball.x, ball.y, ball.size, ball.size);
+            Rectangle paddleRec = new Rectangle(paddle.x, paddle.y, paddle.width, paddle.height);
+           
 
-            if (power.x == powerX)
+            foreach (PowerUp power in powerUps)
             {
-                power.Move();
-                powerX = power.x;
-                powerY = power.y;
-            }
-            else if (power.y == powerY)
-            {
-                power.Move();
-                powerX = power.x;
-                powerY = power.y;
-            }
-            
-
-            if (power.x < 0 || power.x > this.Width)
-            {
-                power.XCollision();
-
-                if (power.y < 0 || power.y > this.Height)
-                {
-                    power.YCollision();
-                }
-                
-            }
-            else if (power.y < 0 || power.y > this.Height)
-            {
-                power.YCollision();
+                Rectangle powerUpRec = new Rectangle(power.x, power.y, power.size, power.size);
 
                 if (power.x < 0 || power.x > this.Width)
                 {
                     power.XCollision();
-                }
-            }
 
-            Rectangle powerUpRec = new Rectangle(power.x, power.y, power.size, power.size);
-            Rectangle paddleRec = new Rectangle(paddle.x, paddle.y, paddle.width, paddle.height);
-
-            if (powerUpRec.IntersectsWith(paddleRec))
-            {
-                power.PaddleCollision(paddle, power);
-
-                if (Form1.powerUp == 1 && xSpeed >= 0 && ySpeed >= 0)
-                {
-                    xSpeed -= 2;
-                    ySpeed -= 2;
-                }
-                else if (Form1.powerUp == 2)
-                {
-                    sheildSpawn = true;
-                }
-                else if (Form1.powerUp == 3 && paddle.width == 80)
-                {
-                    paddle.width = paddle.width + 36;
-                }
-            }
-
-            if (sheildSpawn == true)
-            {
-                Rectangle sheild = new Rectangle(0, this.Height - 30, this.Width, 20);
-                if (powerUpRec.IntersectsWith(sheild))
-                {
-                    power.SheildCollistion();
-                }
-
-                if (ballRec.IntersectsWith(sheild))
-                {
-                    sheildHits++;
-
-                    if (sheildHits == 5)
+                    if (power.y < 0 || power.y > this.Height)
                     {
-                        sheildSpawn = false;
-                        sheildHits = 0;
+                        power.YCollision();
+                    }
+
+                }
+                else if (power.y < 0 || power.y > this.Height)
+                {
+                    power.YCollision();
+
+                    if (power.x < 0 || power.x > this.Width)
+                    {
+                        power.XCollision();
+                    }
+                }
+
+                if (powerUpRec.IntersectsWith(paddleRec))
+                {
+                    power.PaddleCollision(paddle, power);
+
+                    if (power == powerUps[0])
+                    {
+                        if (paddle.width == paddleWidth)
+                        {
+                            paddle.width += 36;
+                        }
+                    }
+                    else if (power == powerUps[1])
+                    {
+                        ySpeed--;
+                        xSpeed--;
                     }
                     else
                     {
-                        ball.SheildCollistion();
+                        sheildSpawn = true;
+                    }
+
+                }
+
+                if (sheildSpawn)
+                {
+                    Rectangle sheild = new Rectangle(0, this.Height - 30, this.Width, 20);
+                    if (powerUpRec.IntersectsWith(sheild))
+                    {
+                        power.SheildCollistion();
+                    }
+
+                    if (ballRec.IntersectsWith(sheild))
+                    {
+                        sheildHits++;
+
+                        if (sheildHits == 5)
+                        {
+                            sheildSpawn = false;
+                            sheildHits = 0;
+                        }
+                        else
+                        {
+                            ball.SheildCollistion();
+                        }
                     }
                 }
             }
-            
 
+            if (speed.x == speedX)
+            {
+                speed.Move();
+                speedX = speed.x;
+                speedY = speed.y;
+            }
+            else if (speed.y == speedY)
+            {
+                speed.Move();
+                speedX = speed.x;
+                speedY = speed.y;
+            }
 
+            if (size.x == sizeX)
+            {
+                size.Move();
+                sizeX = size.x;
+                sizeY = size.y;
+            }
+            else if (size.y == sizeY)
+            {
+                size.Move();
+                sizeX = size.x;
+                sizeY = size.y;
+            }
 
+            if (bottom.x == bottomX)
+            {
+                bottom.Move();
+                bottomX = bottom.x;
+                bottomY = bottom.y;
+            }
+            else if (bottom.y == bottomY)
+            {
+                bottom.Move();
+                bottomX = bottom.x;
+                bottomY = bottom.y;
+            }
 
         }
 
         public void OnStart()
         {
 
-            powerX = random.Next(30, this.Width - 29);
-            power = new PowerUp(powerX, powerY, powerXSpeed, powerYSpeed, powerUpSize);
+            speedX = random.Next(30, this.Width - 29);
+            sizeX = random.Next(30, this.Width - 29);
+            bottomX = random.Next(30, this.Width - 29);
+            speed = new PowerUp(speedX, speedY, powerXSpeed, powerYSpeed, powerUpSize);
+            size = new PowerUp(sizeX, sizeY, powerXSpeed, powerYSpeed, powerUpSize);
+            bottom = new PowerUp(bottomX, bottomY, powerXSpeed, powerYSpeed, powerUpSize);
+            powerUps.Add(size);
+            powerUps.Add(speed);
+            powerUps.Add(bottom);
+
 
             gameStart = true;
             //set life counter
@@ -183,7 +224,7 @@ namespace BrickBreaker
             leftArrowDown = rightArrowDown = false;
 
             // setup starting paddle values and create paddle object
-            int paddleWidth = 80;
+            
             int paddleHeight = 20;
             int paddleX = ((this.Width / 2) - (paddleWidth / 2));
             int paddleY = (this.Height - paddleHeight) - 60;
@@ -385,7 +426,11 @@ namespace BrickBreaker
         {
             e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
 
-            e.Graphics.FillRectangle(powerUpBrush, power.x, power.y, power.size, power.size);
+            foreach (PowerUp power in powerUps)
+            {
+                e.Graphics.FillRectangle(powerUpBrush, power.x, power.y, power.size, power.size);
+            }
+            
             // Draws paddle
             paddleBrush.Color = paddle.colour;
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);

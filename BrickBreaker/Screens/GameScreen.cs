@@ -124,8 +124,8 @@ namespace BrickBreaker
 
                 if (Form1.powerUp == 1 && xSpeed >= 0 && ySpeed >= 0)
                 {
-                    xSpeed = xSpeed - 2;
-                    ySpeed = ySpeed - 2;
+                    xSpeed -= 2;
+                    ySpeed -= 2;
                 }
                 else if (Form1.powerUp == 2)
                 {
@@ -139,7 +139,7 @@ namespace BrickBreaker
 
             if (sheildSpawn == true)
             {
-                Rectangle sheild = new Rectangle(0, 500, 854, 20);
+                Rectangle sheild = new Rectangle(0, this.Height - 30, this.Width, 20);
                 if (powerUpRec.IntersectsWith(sheild))
                 {
                     power.SheildCollistion();

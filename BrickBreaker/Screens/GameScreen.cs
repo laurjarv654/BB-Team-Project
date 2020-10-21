@@ -41,6 +41,7 @@ namespace BrickBreaker
         Paddle paddle;
         Ball ball;
         PowerUp power;
+       
 
         // list of all blocks for current level
         List<Block> blocks = new List<Block>();
@@ -51,10 +52,12 @@ namespace BrickBreaker
         SolidBrush ballBrush = new SolidBrush(Color.White);
         SolidBrush blockBrush = new SolidBrush(Color.Red);
         SolidBrush powerUpBrush = new SolidBrush(Color.Aquamarine);
+        SolidBrush sheildBrush = new SolidBrush(Color.MediumBlue);
 
-        //timer for powerup spawn
+        //bool for sheild spawn
+        bool sheildSpawn = false;
+        int sheildHits = 0;
 
-        Stopwatch myWatch = new Stopwatch();
 
         int ballX, ballY;
         int ballSize = 20;
@@ -69,6 +72,8 @@ namespace BrickBreaker
 
         public void BreannaPowerUp ()
         {
+            
+            Rectangle ballRec = new Rectangle(ball.x, ball.y, ball.size, ball.size);
 
             if (power.x == powerX)
             {
@@ -107,9 +112,30 @@ namespace BrickBreaker
                 }
                 else if (Form1.powerUp == false)
                 {
-
+                    sheildSpawn = true;
                 }
             }
+
+            if (sheildSpawn == true)
+            {
+                Rectangle sheild = new Rectangle(0, 500, 854, 20);
+                if (ballRec.IntersectsWith(sheild))
+                {
+
+                    sheildHits++;
+
+                    if (sheildHits == 5)
+                    {
+                        sheildSpawn = false;
+                        sheildHits = 0;
+                    }
+                    else
+                    {
+                        ball.SheildCollistion();
+                    }
+                }
+            }
+            
 
 
 
@@ -158,7 +184,7 @@ namespace BrickBreaker
 
             #endregion
 
-            myWatch.Start();
+            
 
             // start the game engine loop
             gameTimer.Enabled = true;
@@ -264,7 +290,6 @@ namespace BrickBreaker
         public void OnEnd()
         {
             // Goes to the game over screen
-            myWatch.Stop();
             Form form = this.FindForm();
             MenuScreen ps = new MenuScreen();
             
@@ -276,6 +301,9 @@ namespace BrickBreaker
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
+            e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
+
+            e.Graphics.FillRectangle(powerUpBrush, power.x, power.y, power.size, power.size);
             // Draws paddle
             paddleBrush.Color = paddle.colour;
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
@@ -286,12 +314,11 @@ namespace BrickBreaker
                 e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
             }
 
-            
-            e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
-
-            e.Graphics.FillRectangle(powerUpBrush, power.x, power.y, power.size, power.size);
-
-            
+            if (sheildSpawn == true)
+            {
+                Rectangle sheild = new Rectangle(0, 500, 854, 20);
+                e.Graphics.FillRectangle(sheildBrush, sheild);
+            }
         }
     }
 }

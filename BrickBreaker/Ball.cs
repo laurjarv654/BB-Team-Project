@@ -91,5 +91,11 @@ namespace BrickBreaker
             return Form1.didCollide;
         }
 
+        public void SheildCollistion ()
+        {
+            ySpeed *= -1;
+            xSpeed *= -1;
+        }
+
     }
 }

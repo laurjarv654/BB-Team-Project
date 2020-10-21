@@ -70,19 +70,6 @@ namespace BrickBreaker
             }
         }
 
-        public bool BlockCollision(Block b)
-        {
-            Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
-            Rectangle powerUpRec = new Rectangle(x, y, size, size);
-
-            if (powerUpRec.IntersectsWith(blockRec))
-            {
-                ySpeed *= -1;
-            }
-
-            return blockRec.IntersectsWith(powerUpRec);
-        }
-
         public void SheildCollistion()
         {
             ySpeed *= -1;

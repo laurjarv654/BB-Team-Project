@@ -92,10 +92,21 @@ namespace BrickBreaker
             if (power.x < 0 || power.x > this.Width)
             {
                 power.XCollision();
+
+                if (power.y < 0 || power.y > this.Height)
+                {
+                    power.YCollision();
+                }
+                
             }
             else if (power.y < 0 || power.y > this.Height)
             {
                 power.YCollision();
+
+                if (power.x < 0 || power.x > this.Width)
+                {
+                    power.XCollision();
+                }
             }
 
             Rectangle powerUpRec = new Rectangle(power.x, power.y, power.size, power.size);
@@ -105,7 +116,7 @@ namespace BrickBreaker
             {
                 power.PaddleCollision(paddle, power);
 
-                if (Form1.powerUp == 1 && xSpeed >= 3 && ySpeed >= 3)
+                if (Form1.powerUp == 1 && xSpeed >= 0 && ySpeed >= 0)
                 {
                     xSpeed = xSpeed - 2;
                     ySpeed = ySpeed - 2;
@@ -114,15 +125,10 @@ namespace BrickBreaker
                 {
                     sheildSpawn = true;
                 }
-                else if (Form1.powerUp == 3 && paddle.width == 20)
+                else if (Form1.powerUp == 3 && paddle.width == 80)
                 {
                     paddle.width = paddle.width + 36;
                 }
-            }
-
-            foreach (Block b in blocks)
-            {
-                power.BlockCollision(b);  
             }
 
             if (sheildSpawn == true)
@@ -132,9 +138,9 @@ namespace BrickBreaker
                 {
                     power.SheildCollistion();
                 }
+
                 if (ballRec.IntersectsWith(sheild))
                 {
-
                     sheildHits++;
 
                     if (sheildHits == 5)

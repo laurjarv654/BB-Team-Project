@@ -3,7 +3,8 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace BrickBreaker
-{
+{ //designed by Jayden Roddick
+    
     public class Ball
     {
         public int x, y, xSpeed, ySpeed, size;
@@ -21,7 +22,18 @@ namespace BrickBreaker
             size = _ballSize;
                
         }
-
+        public void MoveWithPaddle(string direction)
+        {
+            if (direction == "left")
+            {
+                x -= xSpeed;
+            }
+            if (direction == "right")
+            {
+                x += xSpeed;
+            }
+        }
+        
         public void Move()
         {
             x = x - xSpeed;
@@ -32,12 +44,25 @@ namespace BrickBreaker
         {
             Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
             Rectangle ballRec = new Rectangle(x, y, size, size);
-
+            Rectangle ballRecSL = new Rectangle(x, y, size, size);
+            Rectangle ballRecSR = new Rectangle(x, y, size, size);
+            Rectangle ballRecSB = new Rectangle(x, y, size, size);
             if (ballRec.IntersectsWith(blockRec))
             {
                 ySpeed *= -1;
             }
-
+            if (ballRecSL.IntersectsWith(blockRec))
+            {
+                ySpeed *= -1;
+            }
+            if (ballRecSR.IntersectsWith(blockRec))
+            {
+                ySpeed *= -1;
+            }
+            if (ballRecSB.IntersectsWith(blockRec))
+            {
+                ySpeed *= -1;
+            }
             return blockRec.IntersectsWith(ballRec);         
         }
 
@@ -45,18 +70,65 @@ namespace BrickBreaker
         {
             Rectangle ballRec = new Rectangle(x, y, size, size);
             Rectangle paddleRec = new Rectangle(p.x, p.y, p.width, p.height);
-
+            Rectangle paddleRecSL = new Rectangle(p.x + 10, p.y + 10, p.height, p.width + 20);
             if (ballRec.IntersectsWith(paddleRec))
             {
-                if (y + size >= p.y)
+                xSpeed *= -1;
+                ySpeed *= -1;
+
+                if (pMovingLeft)
                 {
+                    if (p.y == y)
+                    {
+                        xSpeed = -Math.Abs(xSpeed);
+                        ySpeed *= -1;
+                    }
+                    else if (p.y + p.height == y)
+                    {
+                        xSpeed = -Math.Abs(xSpeed);
+                        ySpeed *= -1;
+                    }
+                    if (p.x == x)
+                    {
+                        xSpeed = -Math.Abs(xSpeed);
+                        ySpeed *= -1;
+                    }
+                    else if (p.x + p.width == x)
+                    {
+                        xSpeed = -Math.Abs(xSpeed);
+                        ySpeed *= -1;
+                    }
+                    
+                } 
+                else if (pMovingRight)
+                {
+                    if (p.y == y)
+                    {
+                        xSpeed = -Math.Abs(xSpeed);
+                        ySpeed *= -1;
+                    }
+                    else if (p.y + p.height == y)
+                    {
+                        xSpeed = -Math.Abs(xSpeed);
+                        ySpeed *= -1;
+                    }
+                    if (p.x == x)
+                    {
+                        xSpeed = -Math.Abs(xSpeed);
+                        ySpeed *= -1;
+                    }
+                    else if (p.x + p.width == x)
+                    {
+                        xSpeed = -Math.Abs(xSpeed);
+                        ySpeed *= -1;
+                    }
+                }
+                else if(ballRec.IntersectsWith(paddleRecSL))
+                {
+                    xSpeed *= -1;
                     ySpeed *= -1;
                 }
 
-                if (pMovingLeft)
-                    xSpeed = -Math.Abs(xSpeed);
-                else if (pMovingRight)
-                    xSpeed = Math.Abs(xSpeed);
             }
         }
 
@@ -96,6 +168,5 @@ namespace BrickBreaker
             ySpeed *= -1;
             xSpeed *= -1;
         }
-
     }
 }

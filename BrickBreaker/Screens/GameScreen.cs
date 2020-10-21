@@ -105,7 +105,7 @@ namespace BrickBreaker
             {
                 power.PaddleCollision(paddle, power);
 
-                if (Form1.powerUp == true && xSpeed > 4 && ySpeed > 4)
+                if (Form1.powerUp == true && xSpeed >= 3 && ySpeed >= 3)
                 {
                     xSpeed--;
                     ySpeed--;
@@ -116,9 +116,18 @@ namespace BrickBreaker
                 }
             }
 
+            foreach (Block b in blocks)
+            {
+                power.BlockCollision(b);  
+            }
+
             if (sheildSpawn == true)
             {
                 Rectangle sheild = new Rectangle(0, 500, 854, 20);
+                if (powerUpRec.IntersectsWith(sheild))
+                {
+                    power.SheildCollistion();
+                }
                 if (ballRec.IntersectsWith(sheild))
                 {
 

@@ -61,14 +61,6 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
-
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream BrickNoise {
-            get {
-                return ResourceManager.GetStream("BrickNoise", resourceCulture);
-                }
-                }
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap ball {
@@ -79,14 +71,6 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream GameOver {
-            get {
-                return ResourceManager.GetStream("GameOver", resourceCulture);
-                }
-                }
-
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap blueBrick {
@@ -99,11 +83,13 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Lose {
+        internal static System.IO.UnmanagedMemoryStream BrickNoise {
             get {
-                return ResourceManager.GetStream("Lose", resourceCulture);
-                }
-                }
+                return ResourceManager.GetStream("BrickNoise", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Controls_Title {
@@ -114,13 +100,6 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream LoseLife {
-            get {
-                return ResourceManager.GetStream("LoseLife", resourceCulture);
-                }
-                }
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap controlsBorder {
@@ -131,14 +110,15 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
-
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Paddle {
+        internal static System.IO.UnmanagedMemoryStream GameOver {
             get {
-                return ResourceManager.GetStream("Paddle", resourceCulture);
-                }
-                }
+                return ResourceManager.GetStream("GameOver", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap gameoverTitle {
@@ -175,6 +155,24 @@ namespace BrickBreaker.Properties {
             get {
                 object obj = ResourceManager.GetObject("highscoresTitle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Lose {
+            get {
+                return ResourceManager.GetStream("Lose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream LoseLife {
+            get {
+                return ResourceManager.GetStream("LoseLife", resourceCulture);
             }
         }
         

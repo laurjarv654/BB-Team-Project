@@ -163,9 +163,6 @@
     <None Include="Resources\LoseLife.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Paddle.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\BrickNoise.wav" />
   </ItemGroup>
   <ItemGroup>

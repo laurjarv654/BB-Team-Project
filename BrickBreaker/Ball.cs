@@ -33,22 +33,22 @@ namespace BrickBreaker
         {
             Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
             Rectangle ballRec = new Rectangle(x, y, size, size);
-            Rectangle ballRecL = new Rectangle(x, y, size, size);
-            Rectangle ballRecW = new Rectangle(x, y, size, size);
-            Rectangle ballRecH = new Rectangle(x, y, size, size);
+            Rectangle ballRecSL = new Rectangle(x, y, size, size);
+            Rectangle ballRecSR = new Rectangle(x, y, size, size);
+            Rectangle ballRecSB = new Rectangle(x, y, size, size);
             if (ballRec.IntersectsWith(blockRec))
             {
                 ySpeed *= -1;
             }
-            if(ballRecL.IntersectsWith(blockRec))
-            {
-                ySpeed *= -1;  
-            }
-            if(ballRecW.IntersectsWith(blockRec))
+            if (ballRecSL.IntersectsWith(blockRec))
             {
                 ySpeed *= -1;
             }
-            if(ballRecH.IntersectsWith(blockRec))
+            if (ballRecSR.IntersectsWith(blockRec))
+            {
+                ySpeed *= -1;
+            }
+            if (ballRecSB.IntersectsWith(blockRec))
             {
                 ySpeed *= -1;
             }
@@ -59,6 +59,7 @@ namespace BrickBreaker
         {
             Rectangle ballRec = new Rectangle(x, y, size, size);
             Rectangle paddleRec = new Rectangle(p.x, p.y, p.width, p.height);
+            Rectangle paddleRecSL = new Rectangle(p.x + 10, p.y + 10, p.height, p.width + 20);
             if (ballRec.IntersectsWith(paddleRec))
             {
                 xSpeed *= -1;
@@ -66,6 +67,16 @@ namespace BrickBreaker
 
                 if (pMovingLeft)
                 {
+                    if (p.y == y)
+                    {
+                        xSpeed = -Math.Abs(xSpeed);
+                        ySpeed *= -1;
+                    }
+                    else if (p.y + p.height == y)
+                    {
+                        xSpeed = -Math.Abs(xSpeed);
+                        ySpeed *= -1;
+                    }
                     if (p.x == x)
                     {
                         xSpeed = -Math.Abs(xSpeed);
@@ -73,13 +84,23 @@ namespace BrickBreaker
                     }
                     else if (p.x + p.width == x)
                     {
-                        xSpeed = Math.Abs(xSpeed);
+                        xSpeed = -Math.Abs(xSpeed);
                         ySpeed *= -1;
                     }
                     
                 } 
                 else if (pMovingRight)
                 {
+                    if (p.y == y)
+                    {
+                        xSpeed = -Math.Abs(xSpeed);
+                        ySpeed *= -1;
+                    }
+                    else if (p.y + p.height == y)
+                    {
+                        xSpeed = -Math.Abs(xSpeed);
+                        ySpeed *= -1;
+                    }
                     if (p.x == x)
                     {
                         xSpeed = -Math.Abs(xSpeed);
@@ -87,11 +108,14 @@ namespace BrickBreaker
                     }
                     else if (p.x + p.width == x)
                     {
-                        xSpeed = Math.Abs(xSpeed);
+                        xSpeed = -Math.Abs(xSpeed);
                         ySpeed *= -1;
                     }
                 }
-                
+                else if(ballRec.IntersectsWith(paddleRecSL))
+                {
+
+                }
 
             }
         }

@@ -14,9 +14,12 @@ namespace BrickBreaker
 {
     public partial class Form1 : Form
     {
+        public static int width, height;
         public Form1()
         {
             InitializeComponent();
+            width = this.Width;
+            height = this.Height;
         }
 
         private void Form1_Load(object sender, EventArgs e)

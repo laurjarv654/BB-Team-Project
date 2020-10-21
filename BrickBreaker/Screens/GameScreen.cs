@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using System.Threading;
 
 namespace BrickBreaker
 {
@@ -20,13 +21,12 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        public static Boolean leftArrowDown, rightArrowDown, pKeyDown, pause;
+        public static Boolean leftArrowDown, rightArrowDown, pKeyDown, pause, gameStart;
        
         // Game values
         int lives;
         int score;
 
-        public static int width, height;
 
         // Paddle and Ball objects
         Paddle paddle;
@@ -51,6 +51,7 @@ namespace BrickBreaker
 
         public void OnStart()
         {
+            gameStart = true;
             //set life counter
             lives = 3;
 
@@ -96,6 +97,7 @@ namespace BrickBreaker
 
             // start the game engine loop
             gameTimer.Enabled = true;
+
         }
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -159,7 +161,8 @@ namespace BrickBreaker
                 // Moves the ball back to origin
                 ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
                 ball.y = (this.Height - paddle.height) - 85;
-
+                Refresh();
+                Thread.Sleep(1500);
                 if (lives == 0)
                 {
                     gameTimer.Enabled = false;
@@ -189,6 +192,11 @@ namespace BrickBreaker
 
             //redraw the screen
             Refresh();
+            if (gameStart)
+            {
+                Thread.Sleep(1500);
+                gameStart = false;
+            }
         }
         public void Pause()
         {
@@ -196,6 +204,7 @@ namespace BrickBreaker
             {
 
                 gameTimer.Enabled = false;
+
                 DialogResult dr = PauseForm.Show();
 
                 if (dr == DialogResult.Cancel)
@@ -204,7 +213,13 @@ namespace BrickBreaker
                 }
                 else if(dr == DialogResult.Abort)   
                 {
-                    Application.Exit();
+                    Form form = this.FindForm();
+                    MenuScreen ms = new MenuScreen();
+
+                    ms.Location = new Point((form.Width - ms.Width) / 2, (form.Height - ms.Height) / 2);
+
+                    form.Controls.Add(ms);
+                    form.Controls.Remove(this);
                 }
             }
         }

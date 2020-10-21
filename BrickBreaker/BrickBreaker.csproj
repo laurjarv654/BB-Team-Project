@@ -142,9 +142,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\ThemeMusic.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\LoseLife.wav" />
   </ItemGroup>
   <ItemGroup>

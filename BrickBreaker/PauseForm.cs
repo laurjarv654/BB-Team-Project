@@ -14,8 +14,7 @@ namespace BrickBreaker
     {
         private static PauseForm pauseForm;
         private static DialogResult buttonResult = new DialogResult();
-        int width = 1280;
-        int height = 812;
+
         //Creating button selected
         private int buttonSelected; 
 
@@ -28,8 +27,10 @@ namespace BrickBreaker
         {
             pauseForm = new PauseForm();
             pauseForm.StartPosition = FormStartPosition.Manual;
-            MenuScreen ms = new MenuScreen();
-            pauseForm.Location = new Point((GameScreen.width - ms.Width) / 2, (GameScreen.height - ms.Height) / 2);
+
+            //pauseForm.Location = new Point((Form1.width - pauseForm.Width) / 2, (Form1.height - pauseForm.Height) / 2);
+            pauseForm.Location = new Point(650, 420);
+
             pauseForm.ShowDialog();
             return buttonResult;
         }

@@ -21,8 +21,12 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
+        Boolean leftArrowDown, rightArrowDown, spaceDown;
+        Boolean ballStart = false;
+
         public static Boolean leftArrowDown, rightArrowDown, pKeyDown, pause, gameStart;
        
+
         // Game values
         int lives;
         int score;
@@ -41,7 +45,6 @@ namespace BrickBreaker
         SolidBrush blockBrush = new SolidBrush(Color.Red);
 
         #endregion
-
         public GameScreen()
         {
             InitializeComponent();
@@ -73,15 +76,14 @@ namespace BrickBreaker
             int ballY = this.Height - paddle.height - 80;
 
             // Creates a new ball
-            int xSpeed = 6;
+            int xSpeed = 8;
             int ySpeed = 6;
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
-
             #region Creates blocks for generic level. Need to replace with code that loads levels.
-            
+
             //TODO - replace all the code in this region eventually with code that loads levels from xml files
-            
+
             blocks.Clear();
             int x = 10;
 
@@ -111,9 +113,15 @@ namespace BrickBreaker
                 case Keys.Right:
                     rightArrowDown = true;
                     break;
+                case Keys.Space:
+                    spaceDown = true;
+                    ballStart = true;
+                    ball.xSpeed = 6;
+
                 case Keys.P:
                     pKeyDown = true;
                     Pause();
+
                     break;
                 default:
                     break;
@@ -131,24 +139,36 @@ namespace BrickBreaker
                 case Keys.Right:
                     rightArrowDown = false;
                     break;
+                case Keys.Space:
+                    spaceDown = false;
+                    break;
                 default:
                     break;
             }
         }
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            
             // Move the paddle
             if (leftArrowDown && paddle.x > 0)
             {
                 paddle.Move("left");
+                if(ballStart == false)
+                ball.MoveWithPaddle("left");
             }
             if (rightArrowDown && paddle.x < (this.Width - paddle.width))
             {
                 paddle.Move("right");
+
+                if(ballStart == false)
+                ball.MoveWithPaddle("right");
             }
 
             // Move ball
-            ball.Move();
+            if (ballStart)
+            {
+                ball.Move();
+            }
 
             // Check for collision with top and side walls
             ball.WallCollision(this);
@@ -161,18 +181,18 @@ namespace BrickBreaker
                 // Moves the ball back to origin
                 ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
                 ball.y = (this.Height - paddle.height) - 85;
+                
                 Refresh();
                 Thread.Sleep(1500);
+
                 if (lives == 0)
                 {
                     gameTimer.Enabled = false;
                     OnEnd();
                 }
             }
-
             // Check for collision of ball with paddle, (incl. paddle movement)
             ball.PaddleCollision(paddle, leftArrowDown, rightArrowDown);
-
             // Check if ball has collided with any blocks
             foreach (Block b in blocks)
             {
@@ -188,6 +208,7 @@ namespace BrickBreaker
                     }
                     break;
                 }
+
             }
 
             //redraw the screen
@@ -223,11 +244,11 @@ namespace BrickBreaker
                 }
             }
         }
-
         public void OnEnd()
         {
             // Goes to the game over screen
             Form form = this.FindForm();
+
             MenuScreen ms = new MenuScreen();
             
             ms.Location = new Point((form.Width - ms.Width) / 2, (form.Height - ms.Height) / 2);

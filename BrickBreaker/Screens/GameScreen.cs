@@ -194,7 +194,6 @@ namespace BrickBreaker
             ballX = this.Width / 2 - 10;
             ballY = this.Height - paddle.height - 80;
 
-            ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             //balls.Add(ball);
 
 

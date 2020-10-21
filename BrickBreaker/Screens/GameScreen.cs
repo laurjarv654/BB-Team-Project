@@ -21,10 +21,9 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        Boolean leftArrowDown, rightArrowDown, spaceDown;
         Boolean ballStart = false;
 
-        public static Boolean leftArrowDown, rightArrowDown, pKeyDown, pause, gameStart;
+        public static Boolean leftArrowDown, rightArrowDown, pKeyDown, pause, gameStart, spaceDown;
        
 
         // Game values
@@ -117,7 +116,7 @@ namespace BrickBreaker
                     spaceDown = true;
                     ballStart = true;
                     ball.xSpeed = 6;
-
+                    break;
                 case Keys.P:
                     pKeyDown = true;
                     Pause();

@@ -161,6 +161,36 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap halfBlueBrick {
+            get {
+                object obj = ResourceManager.GetObject("halfBlueBrick", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap halfGreenBrick {
+            get {
+                object obj = ResourceManager.GetObject("halfGreenBrick", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap halfRedBrick {
+            get {
+                object obj = ResourceManager.GetObject("halfRedBrick", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap highscoreBorder {
             get {
                 object obj = ResourceManager.GetObject("highscoreBorder", resourceCulture);
@@ -339,6 +369,16 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap Title {
             get {
                 object obj = ResourceManager.GetObject("Title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap winnerTitle {
+            get {
+                object obj = ResourceManager.GetObject("winnerTitle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

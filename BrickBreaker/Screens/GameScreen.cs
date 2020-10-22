@@ -145,6 +145,11 @@ namespace BrickBreaker
                     power.Collision();
                 }
 
+
+            if (sheildSpawn == true)
+            {
+                Rectangle sheild = new Rectangle(0, this.Height - 30, this.Width, 20);
+
                 if (powerUpRec.IntersectsWith(sheild))
                 {
                     power.Collision();

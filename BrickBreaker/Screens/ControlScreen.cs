@@ -27,5 +27,6 @@ namespace BrickBreaker
 
             ms.Location = new Point((form.Width - ms.Width) / 2, (form.Height - ms.Height) / 2);
         }
+
     }
 }

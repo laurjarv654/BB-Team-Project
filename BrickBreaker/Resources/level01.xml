@@ -1,87 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <level>
-  <Block>
+  <brick>
     <x>407</x>
     <y>132</y>
     <hp>1</hp>
     <image>greenBrick</image>
-  </Block>
-  <Block>
+  </brick>
+  <brick>
     <x>535</x>
     <y>132</y>
     <hp>1</hp>
     <image>greenBrick</image>
-  </Block>
-  <Block>
+  </brick>
+  <brick>
     <x>211</x>
     <y>190</y>
     <hp>1</hp>
     <image>greenBrick</image>
-  </Block>
-  <Block>
+  </brick>
+  <brick>
     <x>338</x>
     <y>190</y>
     <hp>1</hp>
     <image>greenBrick</image>
-  </Block>
-  <Block>
+  </brick>
+  <brick>
     <x>601</x>
     <y>190</y>
     <hp>1</hp>
     <image>greenBrick</image>
-  </Block>
-  <Block>
+  </brick>
+  <brick>
     <x>730</x>
     <y>190</y>
     <hp>1</hp>
     <image>greenBrick</image>
-  </Block>
-  <Block>
+  </brick>
+  <brick>
     <x>27</x>
     <y>251</y>
     <hp>1</hp>
     <image>greenBrick</image>
-  </Block>
-  <Block>
+  </brick>
+  <brick>
     <x>146</x>
     <y>251</y>
     <hp>1</hp>
     <image>greenBrick</image>
-  </Block>
-  <Block>
+  </brick>
+  <brick>
     <x>277</x>
     <y>251</y>
     <hp>1</hp>
     <image>greenBrick</image>
-  </Block>
-  <Block>
+  </brick>
+  <brick>
     <x>407</x>
     <y>251</y>
     <hp>1</hp>
     <image>greenBrick</image>
-  </Block>
-  <Block>
+  </brick>
+  <brick>
     <x>535</x>
     <y>251</y>
     <hp>1</hp>
     <image>greenBrick</image>
-  </Block>
-  <Block>
+  </brick>
+  <brick>
     <x>663</x>
     <y>251</y>
     <hp>1</hp>
     <image>greenBrick</image>
-  </Block>
-  <Block>
+  </brick>
+  <brick>
     <x>792</x>
     <y>251</y>
     <hp>1</hp>
     <image>greenBrick</image>
-  </Block>
-  <Block>
+  </brick>
+  <brick>
     <x>918</x>
     <y>251</y>
     <hp>1</hp>
     <image>greenBrick</image>
-  </Block>
+  </brick>
 </level>

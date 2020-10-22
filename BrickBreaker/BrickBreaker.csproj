@@ -65,6 +65,12 @@
   <ItemGroup>
     <Compile Include="Ball.cs" />
     <Compile Include="Block.cs" />
+    <Compile Include="Screens\GameOverScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\GameOverScreen.Designer.cs">
+      <DependentUpon>GameOverScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\ControlScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -105,6 +111,15 @@
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="PowerUp.cs" />
+    <Compile Include="Screens\WinnerScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\WinnerScreen.Designer.cs">
+      <DependentUpon>WinnerScreen.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Screens\GameOverScreen.resx">
+      <DependentUpon>GameOverScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\ControlScreen.resx">
       <DependentUpon>ControlScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\GameScreen.resx">
       <DependentUpon>GameScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\WinnerScreen.resx">
+      <DependentUpon>WinnerScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -187,9 +205,6 @@
     <None Include="Resources\Controls Title.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\gameoverTitle.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\greenBrick.png" />
   </ItemGroup>
   <ItemGroup>
@@ -226,13 +241,28 @@
     <None Include="Resources\paddlePowerBall.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\shieldPowerBall.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\pauseBackground.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pausedTitle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gameoverTitle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\winnerTitle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shieldPowerBall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\halfBlueBrick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\halfGreenBrick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\halfRedBrick.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

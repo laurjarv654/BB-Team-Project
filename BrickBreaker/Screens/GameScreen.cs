@@ -471,7 +471,7 @@ namespace BrickBreaker
 
             if (sheildSpawn == true)
             {
-                Rectangle sheild = new Rectangle(0, 500, 854, 20);
+                Rectangle sheild = new Rectangle(0, this.Height - 30, this.Width, 20);
                 e.Graphics.FillRectangle(sheildBrush, sheild);
             }
         }

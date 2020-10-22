@@ -363,15 +363,19 @@ namespace BrickBreaker
                 }
 
 
-                
-               
-                
+
+
+
                 // Moves the ball back to origin
+                paddle.x = (this.Width / 2);
+
                 ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
                 ball.y = (this.Height - paddle.height) - 85;
+
                 
-                //Refresh();
-                //Thread.Sleep(1500);
+
+                Refresh();
+                Thread.Sleep(1500);
 
                 if (lives == 0)
                 {

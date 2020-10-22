@@ -234,16 +234,18 @@ namespace BrickBreaker.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        //internal static System.IO.UnmanagedMemoryStream PaddleNoise {
-        //    get {
+        //internal static System.IO.UnmanagedMemoryStream PaddleNoise
+        //{
+        //    get
+        //    {
         //        return ResourceManager.GetStream("PaddleNoise", resourceCulture);
         //    }
         //}
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>

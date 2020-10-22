@@ -37,13 +37,13 @@ namespace BrickBreaker
         //player1 button control keys - DO NOT CHANGE
         Boolean ballStart = false;
 
-        public static Boolean leftArrowDown, rightArrowDown, pKeyDown, pause, gameStart, spaceDown;
+        public static Boolean leftArrowDown, rightArrowDown, escapeKeyDown, pause, gameStart, spaceDown;
        
 
         // Game values
         int lives;
 
-        int xSpeed = 6;
+        int xSpeed = 8;
         int ySpeed = 6;
         int score;
 
@@ -289,8 +289,8 @@ namespace BrickBreaker
                     ballStart = true;
                     ball.xSpeed = 6;
                     break;
-                case Keys.P:
-                    pKeyDown = true;
+                case Keys.Escape:
+                    escapeKeyDown = true;
                     Pause();
                     break;
                 default:

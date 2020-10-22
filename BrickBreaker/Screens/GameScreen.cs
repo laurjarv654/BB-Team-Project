@@ -243,7 +243,6 @@ namespace BrickBreaker
                 case Keys.P:
                     pKeyDown = true;
                     Pause();
-
                     break;
                 default:
                     break;

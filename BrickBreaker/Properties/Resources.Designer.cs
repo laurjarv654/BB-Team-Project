@@ -275,16 +275,6 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Paddle__smaller_ {
-            get {
-                object obj = ResourceManager.GetObject("Paddle__smaller_", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream PaddleNoise {
@@ -349,16 +339,6 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap shieldPowerUp {
             get {
                 object obj = ResourceManager.GetObject("shieldPowerUp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap smallPaddle {
-            get {
-                object obj = ResourceManager.GetObject("smallPaddle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

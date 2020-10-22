@@ -209,9 +209,6 @@
     <None Include="Resources\greenBrick.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Paddle %28smaller%29.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Paddle.png" />
   </ItemGroup>
   <ItemGroup>

@@ -259,7 +259,7 @@ namespace BrickBreaker
             blocks.Clear();
             int x = 10;
 
-            while (blocks.Count < 12)
+            while (blocks.Count < 15)
             {
                 x += 57;
                 Block b1 = new Block(x, 10, 1, Color.White);
@@ -292,7 +292,6 @@ namespace BrickBreaker
                 case Keys.P:
                     pKeyDown = true;
                     Pause();
-
                     break;
                 default:
                     break;
@@ -466,7 +465,7 @@ namespace BrickBreaker
             // Draws blocks
             foreach (Block b in blocks)
             {
-                e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
+                e.Graphics.DrawImage(Properties.Resources.greenBrick, b.x, b.y, b.width, b.height);
             }
 
             if (sheildSpawn == true)

@@ -26,10 +26,7 @@ namespace BrickBreaker
         public static DialogResult Show()
         {
             pauseForm = new PauseForm();
-            pauseForm.StartPosition = FormStartPosition.Manual;
-
-            //pauseForm.Location = new Point((Form1.width - pauseForm.Width) / 2, (Form1.height - pauseForm.Height) / 2);
-            pauseForm.Location = new Point(650, 420);
+            pauseForm.StartPosition = FormStartPosition.CenterParent;
 
             pauseForm.ShowDialog();
             return buttonResult;

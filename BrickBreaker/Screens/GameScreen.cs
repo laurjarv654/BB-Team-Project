@@ -14,7 +14,7 @@ using System.Windows.Forms;
 using System.Media;
 using System.Diagnostics;
 using System.Threading;
-
+using System.Xml;
 
 namespace BrickBreaker
 {
@@ -255,6 +255,19 @@ namespace BrickBreaker
             #region Creates blocks for generic level. Need to replace with code that loads levels.
 
             //TODO - replace all the code in this region eventually with code that loads levels from xml files
+            XmlReader reader = XmlReader.Create("Resources/level01.xml");
+
+            while(reader.Read())
+            {
+                if(reader.NodeType == XmlNodeType.Text)
+                {
+                    x = reader.ToString();
+
+                    reader.ReadToNextSibling("y");
+                    y = reader.ReadString; 
+
+                }
+            }
 
             blocks.Clear();
             int x = 10;

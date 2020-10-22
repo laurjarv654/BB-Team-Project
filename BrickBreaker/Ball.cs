@@ -22,15 +22,15 @@ namespace BrickBreaker
             size = _ballSize;
                
         }
-        public void MoveWithPaddle(string direction)
+        public void MoveWithPaddle(string direction, Paddle p)
         {
             if (direction == "left")
             {
-                x -= xSpeed;
+                x -= p.speed;
             }
             if (direction == "right")
             {
-                x += xSpeed;
+                x += p.speed;
             }
         }
         
@@ -66,67 +66,34 @@ namespace BrickBreaker
             return blockRec.IntersectsWith(ballRec);         
         }
 
-        public void PaddleCollision(Paddle p, bool pMovingLeft, bool pMovingRight)
+        public void PaddleCollision(Paddle p)
         {
-            Rectangle ballRec = new Rectangle(x, y, size, size);
-            Rectangle paddleRec = new Rectangle(p.x, p.y, p.width, p.height);
-            Rectangle paddleRecSL = new Rectangle(p.x + 10, p.y + 10, p.height, p.width + 20);
+            Rectangle ballRec = new Rectangle(x + 5, y + 5, size + 5, size + 5);
+            Rectangle paddleRec = new Rectangle(p.x + 5, p.y + 5, p.width + 5, p.height + 5);
+            //Rectangle paddleRecSL = new Rectangle(p.x + 10, p.y + 10, p.height, p.width + 20);
             if (ballRec.IntersectsWith(paddleRec))
             {
-                xSpeed *= -1;
+
                 ySpeed *= -1;
 
-                if (pMovingLeft)
+                int random = rand.Next(1, 101); 
+
+                if (random < 26)
                 {
-                    if (p.y == y)
-                    {
-                        xSpeed = -Math.Abs(xSpeed);
-                        ySpeed *= -1;
-                    }
-                    else if (p.y + p.height == y)
-                    {
-                        xSpeed = -Math.Abs(xSpeed);
-                        ySpeed *= -1;
-                    }
-                    if (p.x == x)
-                    {
-                        xSpeed = -Math.Abs(xSpeed);
-                        ySpeed *= -1;
-                    }
-                    else if (p.x + p.width == x)
-                    {
-                        xSpeed = -Math.Abs(xSpeed);
-                        ySpeed *= -1;
-                    }
-                    
-                } 
-                else if (pMovingRight)
-                {
-                    if (p.y == y)
-                    {
-                        xSpeed = -Math.Abs(xSpeed);
-                        ySpeed *= -1;
-                    }
-                    else if (p.y + p.height == y)
-                    {
-                        xSpeed = -Math.Abs(xSpeed);
-                        ySpeed *= -1;
-                    }
-                    if (p.x == x)
-                    {
-                        xSpeed = -Math.Abs(xSpeed);
-                        ySpeed *= -1;
-                    }
-                    else if (p.x + p.width == x)
-                    {
-                        xSpeed = -Math.Abs(xSpeed);
-                        ySpeed *= -1;
-                    }
+                    ySpeed += 1;
+                    xSpeed += 1;
                 }
-                else if(ballRec.IntersectsWith(paddleRecSL))
+  
+
+                int value = rand.Next(1, 51);
+
+                if (value <= 25)
                 {
                     xSpeed *= -1;
-                    ySpeed *= -1;
+                }
+                else
+                {
+                    xSpeed *= 1;
                 }
 
             }

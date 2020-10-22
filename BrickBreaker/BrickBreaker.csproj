@@ -71,6 +71,7 @@
     <Compile Include="Screens\GameOverScreen.Designer.cs">
       <DependentUpon>GameOverScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="HighScore.cs" />
     <Compile Include="Screens\ControlScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -263,6 +264,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\halfRedBrick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level01.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

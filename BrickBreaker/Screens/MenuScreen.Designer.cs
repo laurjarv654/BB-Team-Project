@@ -43,6 +43,7 @@
             // playButton
             // 
             this.playButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(84)))));
+            this.playButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.playButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(63)))), ((int)(((byte)(33)))));
             this.playButton.FlatAppearance.BorderSize = 5;
             this.playButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(139)))), ((int)(((byte)(73)))));
@@ -62,6 +63,7 @@
             // exitButton
             // 
             this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(84)))));
+            this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.exitButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(63)))), ((int)(((byte)(33)))));
             this.exitButton.FlatAppearance.BorderSize = 5;
             this.exitButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(139)))), ((int)(((byte)(73)))));
@@ -81,6 +83,7 @@
             // controlsButton
             // 
             this.controlsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(84)))));
+            this.controlsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.controlsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(63)))), ((int)(((byte)(33)))));
             this.controlsButton.FlatAppearance.BorderSize = 5;
             this.controlsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(139)))), ((int)(((byte)(73)))));
@@ -100,6 +103,7 @@
             // highscoreButton
             // 
             this.highscoreButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(84)))));
+            this.highscoreButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.highscoreButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(63)))), ((int)(((byte)(33)))));
             this.highscoreButton.FlatAppearance.BorderSize = 5;
             this.highscoreButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(139)))), ((int)(((byte)(73)))));
@@ -120,7 +124,9 @@
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = global::BrickBreaker.Properties.Resources.greenBrick;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+
             this.pictureBox3.Location = new System.Drawing.Point(18, 100);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(200, 100);
@@ -131,7 +137,9 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::BrickBreaker.Properties.Resources.greenBrick;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+
             this.pictureBox2.Location = new System.Drawing.Point(832, 100);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(200, 100);
@@ -142,7 +150,9 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::BrickBreaker.Properties.Resources.Title;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+
             this.pictureBox1.Location = new System.Drawing.Point(81, 38);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(898, 430);

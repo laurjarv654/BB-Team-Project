@@ -58,7 +58,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::BrickBreaker.Properties.Resources.greenBrick;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(19, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(22, 193);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(96, 41);
             this.pictureBox1.TabIndex = 0;
@@ -128,7 +128,7 @@
             // 
             this.pictureBox8.BackgroundImage = global::BrickBreaker.Properties.Resources.greenBrick;
             this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Location = new System.Drawing.Point(132, 12);
+            this.pictureBox8.Location = new System.Drawing.Point(166, 193);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(96, 41);
             this.pictureBox8.TabIndex = 7;

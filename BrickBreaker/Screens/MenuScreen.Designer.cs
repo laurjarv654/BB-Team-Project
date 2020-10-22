@@ -43,6 +43,7 @@
             // playButton
             // 
             this.playButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(84)))));
+            this.playButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.playButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(63)))), ((int)(((byte)(33)))));
             this.playButton.FlatAppearance.BorderSize = 5;
             this.playButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(139)))), ((int)(((byte)(73)))));
@@ -50,7 +51,10 @@
             this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playButton.Font = new System.Drawing.Font("Tahoma", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(63)))), ((int)(((byte)(33)))));
-            this.playButton.Location = new System.Drawing.Point(65, 409);
+
+            this.playButton.Location = new System.Drawing.Point(81, 511);
+            this.playButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(164, 76);
             this.playButton.TabIndex = 0;
@@ -61,6 +65,7 @@
             // exitButton
             // 
             this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(84)))));
+            this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.exitButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(63)))), ((int)(((byte)(33)))));
             this.exitButton.FlatAppearance.BorderSize = 5;
             this.exitButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(139)))), ((int)(((byte)(73)))));
@@ -68,7 +73,10 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Tahoma", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(63)))), ((int)(((byte)(33)))));
-            this.exitButton.Location = new System.Drawing.Point(590, 409);
+
+            this.exitButton.Location = new System.Drawing.Point(738, 511);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(164, 76);
             this.exitButton.TabIndex = 1;
@@ -79,6 +87,7 @@
             // controlsButton
             // 
             this.controlsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(84)))));
+            this.controlsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.controlsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(63)))), ((int)(((byte)(33)))));
             this.controlsButton.FlatAppearance.BorderSize = 5;
             this.controlsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(139)))), ((int)(((byte)(73)))));
@@ -86,7 +95,10 @@
             this.controlsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.controlsButton.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.controlsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(63)))), ((int)(((byte)(33)))));
-            this.controlsButton.Location = new System.Drawing.Point(239, 409);
+
+            this.controlsButton.Location = new System.Drawing.Point(299, 511);
+            this.controlsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+
             this.controlsButton.Name = "controlsButton";
             this.controlsButton.Size = new System.Drawing.Size(164, 76);
             this.controlsButton.TabIndex = 2;
@@ -97,6 +109,7 @@
             // highscoreButton
             // 
             this.highscoreButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(84)))));
+            this.highscoreButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.highscoreButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(63)))), ((int)(((byte)(33)))));
             this.highscoreButton.FlatAppearance.BorderSize = 5;
             this.highscoreButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(139)))), ((int)(((byte)(73)))));
@@ -104,7 +117,10 @@
             this.highscoreButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.highscoreButton.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.highscoreButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(63)))), ((int)(((byte)(33)))));
-            this.highscoreButton.Location = new System.Drawing.Point(416, 409);
+
+            this.highscoreButton.Location = new System.Drawing.Point(520, 511);
+            this.highscoreButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+
             this.highscoreButton.Name = "highscoreButton";
             this.highscoreButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.highscoreButton.Size = new System.Drawing.Size(164, 76);
@@ -117,8 +133,10 @@
             // 
             this.pictureBox3.BackgroundImage = global::BrickBreaker.Properties.Resources.greenBrick;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(14, 80);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
+            this.pictureBox3.Location = new System.Drawing.Point(22, 125);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(160, 80);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -129,8 +147,10 @@
             // 
             this.pictureBox2.BackgroundImage = global::BrickBreaker.Properties.Resources.greenBrick;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(666, 80);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
+            this.pictureBox2.Location = new System.Drawing.Point(868, 125);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(160, 80);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -141,8 +161,10 @@
             // 
             this.pictureBox1.BackgroundImage = global::BrickBreaker.Properties.Resources.Title;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(65, 30);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
+            this.pictureBox1.Location = new System.Drawing.Point(101, 48);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(718, 344);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -161,8 +183,11 @@
             this.Controls.Add(this.controlsButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.playButton);
+
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MenuScreen";
-            this.Size = new System.Drawing.Size(854, 542);
+            this.Size = new System.Drawing.Size(1068, 678);
+
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

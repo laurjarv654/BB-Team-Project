@@ -1,7 +1,7 @@
 ﻿/*  Created by: 
  *  Project: Brick Breaker
  *  Date: 10/21/2020
- */ 
+ */
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ using System.Windows.Forms;
 using System.Media;
 using System.Diagnostics;
 using System.Threading;
-
+using System.Xml;
 
 namespace BrickBreaker
 {
@@ -37,13 +37,13 @@ namespace BrickBreaker
         //player1 button control keys - DO NOT CHANGE
         Boolean ballStart = false;
 
-        public static Boolean leftArrowDown, rightArrowDown, pKeyDown, pause, gameStart, spaceDown;
-       
+        public static Boolean leftArrowDown, rightArrowDown, escapeKeyDown, pause, gameStart, spaceDown;
+
 
         // Game values
         int lives;
 
-        int xSpeed = 6;
+        int xSpeed = 8;
         int ySpeed = 6;
         int score;
 
@@ -51,12 +51,12 @@ namespace BrickBreaker
         Paddle paddle;
         Ball ball;
         PowerUp speed, size, bottom;
-       
+
 
         // list of all blocks for current level
         List<Block> blocks = new List<Block>();
         List<PowerUp> powerUps = new List<PowerUp>();
-        
+
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
@@ -81,9 +81,9 @@ namespace BrickBreaker
             OnStart();
         }
 
-        public void BreannaPowerUp ()
+        public void BreannaPowerUp()
         {
-            
+
             Rectangle ballRec = new Rectangle(ball.x, ball.y, ball.size, ball.size);
             Rectangle paddleRec = new Rectangle(paddle.x, paddle.y, paddle.width, paddle.height);
             Rectangle sizeRec = new Rectangle(size.x, size.y, size.size, size.size);
@@ -101,10 +101,10 @@ namespace BrickBreaker
 
             if (speedRec.IntersectsWith(paddleRec))
             {
-                if (ball.xSpeed > 2 && ball.ySpeed > 2)
+                if (ball.xSpeed >= 2 && ball.ySpeed >= 2)
                 {
-                    ball.xSpeed -= 2;
-                    ball.ySpeed -= 2;
+                    ball.xSpeed--;
+                    ball.ySpeed--;
                 }
             }
 
@@ -112,9 +112,6 @@ namespace BrickBreaker
             {
                 sheildSpawn = true;
             }
-
-
-
 
             foreach (PowerUp power in powerUps)
             {
@@ -145,71 +142,75 @@ namespace BrickBreaker
                     power.Collision();
                 }
 
-                if (powerUpRec.IntersectsWith(sheild))
+
+                if (sheildSpawn == true)
                 {
-                    power.Collision();
-                }
-            }
+                    //Rectangle sheild = new Rectangle(0, this.Height - 30, this.Width, 20);
 
-            if (speed.x == speedX)
-            {
-                speed.Move();
-                speedX = speed.x;
-                speedY = speed.y;
-            }
-            else if (speed.y == speedY)
-            {
-                speed.Move();
-                speedX = speed.x;
-                speedY = speed.y;
-            }
-
-            if (size.x == sizeX)
-            {
-                size.Move();
-                sizeX = size.x;
-                sizeY = size.y;
-            }
-            else if (size.y == sizeY)
-            {
-                size.Move();
-                sizeX = size.x;
-                sizeY = size.y;
-            }
-
-            if (bottom.x == bottomX)
-            {
-                bottom.Move();
-                bottomX = bottom.x;
-                bottomY = bottom.y;
-            }
-            else if (bottom.y == bottomY)
-            {
-                bottom.Move();
-                bottomX = bottom.x;
-                bottomY = bottom.y;
-            }
-
-            if (sheildSpawn == true)
-            {
-                if (ballRec.IntersectsWith(sheild))
-                {
-                    sheildHits++;
-
-                    if (sheildHits == 5)
+                    if (powerUpRec.IntersectsWith(sheild))
                     {
-                        sheildSpawn = false;
-                        sheildHits = 0;
-                    }
-                    else
-                    {
-                        ball.SheildCollistion();
+                        power.Collision();
                     }
                 }
-            }
 
+                if (speed.x == speedX)
+                {
+                    speed.Move();
+                    speedX = speed.x;
+                    speedY = speed.y;
+                }
+                else if (speed.y == speedY)
+                {
+                    speed.Move();
+                    speedX = speed.x;
+                    speedY = speed.y;
+                }
+
+                if (size.x == sizeX)
+                {
+                    size.Move();
+                    sizeX = size.x;
+                    sizeY = size.y;
+                }
+                else if (size.y == sizeY)
+                {
+                    size.Move();
+                    sizeX = size.x;
+                    sizeY = size.y;
+                }
+
+                if (bottom.x == bottomX)
+                {
+                    bottom.Move();
+                    bottomX = bottom.x;
+                    bottomY = bottom.y;
+                }
+                else if (bottom.y == bottomY)
+                {
+                    bottom.Move();
+                    bottomX = bottom.x;
+                    bottomY = bottom.y;
+                }
+
+                if (sheildSpawn == true)
+                {
+                    if (ballRec.IntersectsWith(sheild))
+                    {
+                        sheildHits++;
+
+                        if (sheildHits == 5)
+                        {
+                            sheildSpawn = false;
+                            sheildHits = 0;
+                        }
+                        else
+                        {
+                            ball.SheildCollistion();
+                        }
+                    }
+                }
+            }
         }
-
         public void OnStart()
         {
 
@@ -234,7 +235,7 @@ namespace BrickBreaker
             leftArrowDown = rightArrowDown = false;
 
             // setup starting paddle values and create paddle object
-            
+
             int paddleHeight = 20;
             int paddleX = ((this.Width / 2) - (paddleWidth / 2));
             int paddleY = (this.Height - paddleHeight) - 60;
@@ -255,14 +256,33 @@ namespace BrickBreaker
             #region Creates blocks for generic level. Need to replace with code that loads levels.
 
             //TODO - replace all the code in this region eventually with code that loads levels from xml files
+            XmlReader reader = XmlReader.Create("Resources/level01.xml");
+            while (reader.Read())
+            {
+                if (reader.NodeType == XmlNodeType.Text)
+                {
+                    int x = Convert.ToInt32(reader.ToString());
+
+                    reader.ReadToNextSibling("y");
+                    int y = Convert.ToInt32(reader.ReadString());
+
+                    reader.ReadToNextSibling("hp");
+                    int hp = Convert.ToInt32(reader.ReadString());
+
+                    Block newBlock = new Block(x, y, hp);
+                    blocks.Add(newBlock);
+                }
+            }
 
             blocks.Clear();
-            int x = 10;
-
+            //int x = 10;
+            int testX = 10;
             while (blocks.Count < 15)
             {
-                x += 57;
-                Block b1 = new Block(x, 10, 1, Color.White);
+
+                testX += 57;
+                Block b1 = new Block(testX, 10, 1);
+
                 blocks.Add(b1);
             }
 
@@ -289,8 +309,8 @@ namespace BrickBreaker
                     ballStart = true;
                     ball.xSpeed = 6;
                     break;
-                case Keys.P:
-                    pKeyDown = true;
+                case Keys.Escape:
+                    escapeKeyDown = true;
                     Pause();
                     break;
                 default:
@@ -326,8 +346,10 @@ namespace BrickBreaker
             if (leftArrowDown && paddle.x > 0)
             {
                 paddle.Move("left");
+
                 if(ballStart == false)
                 ball.MoveWithPaddle("left", paddle);
+
             }
             if (rightArrowDown && paddle.x < (this.Width - paddle.width))
             {
@@ -335,6 +357,7 @@ namespace BrickBreaker
 
                 if(ballStart == false)
                 ball.MoveWithPaddle("right", paddle);
+
             }
 
             // Move ball
@@ -362,20 +385,15 @@ namespace BrickBreaker
                     ball.ySpeed = 6;
                 }
 
-
-
-
-
                 // Moves the ball back to origin
                 paddle.x = (this.Width / 2);
 
                 ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
                 ball.y = (this.Height - paddle.height) - 85;
 
-                
-
                 Refresh();
                 Thread.Sleep(1500);
+
 
                 if (lives == 0)
                 {
@@ -392,7 +410,7 @@ namespace BrickBreaker
                 {
                     blocks.Remove(b);
                     score++;
-                    
+
                     if (blocks.Count == 0)
                     {
                         gameTimer.Enabled = false;
@@ -413,7 +431,7 @@ namespace BrickBreaker
         }
         public void Pause()
         {
-            if(gameTimer.Enabled == true)
+            if (gameTimer.Enabled == true)
             {
 
                 gameTimer.Enabled = false;
@@ -424,7 +442,7 @@ namespace BrickBreaker
                 {
                     gameTimer.Enabled = true;
                 }
-                else if(dr == DialogResult.Abort)   
+                else if (dr == DialogResult.Abort)
                 {
                     Form form = this.FindForm();
                     MenuScreen ms = new MenuScreen();
@@ -442,7 +460,7 @@ namespace BrickBreaker
             Form form = this.FindForm();
 
             MenuScreen ms = new MenuScreen();
-            
+
             ms.Location = new Point((form.Width - ms.Width) / 2, (form.Height - ms.Height) / 2);
 
             form.Controls.Add(ms);
@@ -458,10 +476,10 @@ namespace BrickBreaker
             //    e.Graphics.FillRectangle(powerUpBrush, power.x, power.y, power.size, power.size);
             //}
 
-            e.Graphics.FillRectangle(sizeBrush,size.x, size.y, size.size, size.size);
+            e.Graphics.FillRectangle(sizeBrush, size.x, size.y, size.size, size.size);
             e.Graphics.FillRectangle(speedBrush, speed.x, speed.y, speed.size, speed.size);
             e.Graphics.FillRectangle(sheildBrush, bottom.x, bottom.y, bottom.size, bottom.size);
-            
+
             // Draws paddle
             paddleBrush.Color = paddle.colour;
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
@@ -469,14 +487,20 @@ namespace BrickBreaker
             // Draws blocks
             foreach (Block b in blocks)
             {
-                e.Graphics.DrawImage(Properties.Resources.greenBrick, b.x, b.y, b.width, b.height);
+                if (b.hp == 1)
+                    e.Graphics.DrawImage(Properties.Resources.greenBrick, b.x, b.y, b.width, b.height);
+                if (b.hp == 2)
+                    e.Graphics.DrawImage(Properties.Resources.blueBrick, b.x, b.y, b.width, b.height);
+                if (b.hp == 3)
+                    e.Graphics.DrawImage(Properties.Resources.redBrick, b.x, b.y, b.width, b.height);
             }
 
             if (sheildSpawn == true)
             {
-                Rectangle sheild = new Rectangle(0, this.Height - 30, this.Width, 20);
-                e.Graphics.FillRectangle(sheildBrush, sheild);
+                Rectangle shield = new Rectangle(0, this.Height - 30, this.Width, 20);
+                e.Graphics.FillRectangle(sheildBrush, shield);
             }
         }
     }
 }
+     

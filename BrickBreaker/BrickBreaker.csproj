@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Ball.cs" />
     <Compile Include="Block.cs" />
+    <Compile Include="HighScore.cs" />
     <Compile Include="Screens\ControlScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -327,14 +327,14 @@ namespace BrickBreaker
             {
                 paddle.Move("left");
                 if(ballStart == false)
-                ball.MoveWithPaddle("left");
+                ball.MoveWithPaddle("left", paddle);
             }
             if (rightArrowDown && paddle.x < (this.Width - paddle.width))
             {
                 paddle.Move("right");
 
                 if(ballStart == false)
-                ball.MoveWithPaddle("right");
+                ball.MoveWithPaddle("right", paddle);
             }
 
             // Move ball
@@ -380,7 +380,7 @@ namespace BrickBreaker
                 }
             }
             // Check for collision of ball with paddle, (incl. paddle movement)
-            ball.PaddleCollision(paddle, leftArrowDown, rightArrowDown);
+            ball.PaddleCollision(paddle);
             // Check if ball has collided with any blocks
             foreach (Block b in blocks)
             {

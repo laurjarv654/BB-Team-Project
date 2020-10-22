@@ -256,12 +256,13 @@ namespace BrickBreaker
             #region Creates blocks for generic level. Need to replace with code that loads levels.
 
             //TODO - replace all the code in this region eventually with code that loads levels from xml files
-            XmlReader reader = XmlReader.Create("Resources/level01.xml");
+            //XmlReader reader = XmlReader.Create("Resources/level01.xml");
+            XmlTextReader reader = new XmlTextReader("Resources/level01.xml");
             while (reader.Read())
             {
                 if (reader.NodeType == XmlNodeType.Text)
                 {
-                    int x = Convert.ToInt32(reader.ToString());
+                    int x = Convert.ToInt16(reader.ToString());
 
                     reader.ReadToNextSibling("y");
                     int y = Convert.ToInt32(reader.ReadString());

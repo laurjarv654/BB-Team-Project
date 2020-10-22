@@ -39,38 +39,7 @@ namespace BrickBreaker
             xSpeed *= -1;
         }
 
-        public void PaddleCollision(Paddle p, PowerUp up)
-        {
-            Rectangle powerUpRec = new Rectangle(up.x, up.y, up.size, up.size);
-            Rectangle paddleRec = new Rectangle(p.x, p.y, p.width, p.height);
-
-            if (powerUpRec.IntersectsWith(paddleRec))
-            {
-                int value = randGen.Next(1, 3);
-
-                if (value == 1)
-                {
-                    Form1.powerUp = 1;
-                    ySpeed *= -1;
-                    xSpeed *= -1;
-
-                }
-                else if (value == 2)
-                {
-                    Form1.powerUp = 2;
-                    ySpeed *= -1;
-                    xSpeed *= -1;
-                }
-                else
-                {
-                    Form1.powerUp = 3;
-                    ySpeed *= -1;
-                    xSpeed *= -1;
-                }
-            }
-        }
-
-        public void SheildCollistion()
+        public void Collision()
         {
             ySpeed *= -1;
             xSpeed *= -1;

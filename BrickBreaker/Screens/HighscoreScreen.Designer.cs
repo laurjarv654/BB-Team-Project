@@ -71,6 +71,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::BrickBreaker.Properties.Resources.highscoreBorder;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(33, 155);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(975, 415);
@@ -81,6 +82,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::BrickBreaker.Properties.Resources.highscoresTitle;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(12, 17);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(767, 119);
@@ -91,7 +93,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = global::BrickBreaker.Properties.Resources.greenBrick;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Location = new System.Drawing.Point(804, 21);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(204, 109);

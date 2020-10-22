@@ -199,13 +199,7 @@
     <None Include="Resources\Paddle.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pausedTitle.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\redBrick.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\shieldPowerBall.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\shieldPowerUp.png" />
@@ -221,6 +215,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\controlsBorder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ballPowerBall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gamescreenBorder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paddlePowerBall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shieldPowerBall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pauseBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pausedTitle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

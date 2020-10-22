@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -55,6 +56,14 @@
             this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
             // 
             // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::BrickBreaker.Properties.Resources.gamescreenBorder;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1067, 66);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             this.pictureBox1.BackgroundImage = global::BrickBreaker.Properties.Resources.greenBrick;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -162,6 +171,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+          
             this.ResumeLayout(false);
 
         }

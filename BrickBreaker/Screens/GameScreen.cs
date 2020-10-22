@@ -113,9 +113,6 @@ namespace BrickBreaker
                 sheildSpawn = true;
             }
 
-
-
-
             foreach (PowerUp power in powerUps)
             {
                 Rectangle powerUpRec = new Rectangle(power.x, power.y, power.size, power.size);
@@ -146,75 +143,74 @@ namespace BrickBreaker
                 }
 
 
-            if (sheildSpawn == true)
-            {
-                Rectangle sheild = new Rectangle(0, this.Height - 30, this.Width, 20);
-
-                if (powerUpRec.IntersectsWith(sheild))
+                if (sheildSpawn == true)
                 {
-                    power.Collision();
-                }
-            }
+                    //Rectangle sheild = new Rectangle(0, this.Height - 30, this.Width, 20);
 
-            if (speed.x == speedX)
-            {
-                speed.Move();
-                speedX = speed.x;
-                speedY = speed.y;
-            }
-            else if (speed.y == speedY)
-            {
-                speed.Move();
-                speedX = speed.x;
-                speedY = speed.y;
-            }
-
-            if (size.x == sizeX)
-            {
-                size.Move();
-                sizeX = size.x;
-                sizeY = size.y;
-            }
-            else if (size.y == sizeY)
-            {
-                size.Move();
-                sizeX = size.x;
-                sizeY = size.y;
-            }
-
-            if (bottom.x == bottomX)
-            {
-                bottom.Move();
-                bottomX = bottom.x;
-                bottomY = bottom.y;
-            }
-            else if (bottom.y == bottomY)
-            {
-                bottom.Move();
-                bottomX = bottom.x;
-                bottomY = bottom.y;
-            }
-
-            if (sheildSpawn == true)
-            {
-                if (ballRec.IntersectsWith(sheild))
-                {
-                    sheildHits++;
-
-                    if (sheildHits == 5)
+                    if (powerUpRec.IntersectsWith(sheild))
                     {
-                        sheildSpawn = false;
-                        sheildHits = 0;
-                    }
-                    else
-                    {
-                        ball.SheildCollistion();
+                        power.Collision();
                     }
                 }
-            }
 
+                if (speed.x == speedX)
+                {
+                    speed.Move();
+                    speedX = speed.x;
+                    speedY = speed.y;
+                }
+                else if (speed.y == speedY)
+                {
+                    speed.Move();
+                    speedX = speed.x;
+                    speedY = speed.y;
+                }
+
+                if (size.x == sizeX)
+                {
+                    size.Move();
+                    sizeX = size.x;
+                    sizeY = size.y;
+                }
+                else if (size.y == sizeY)
+                {
+                    size.Move();
+                    sizeX = size.x;
+                    sizeY = size.y;
+                }
+
+                if (bottom.x == bottomX)
+                {
+                    bottom.Move();
+                    bottomX = bottom.x;
+                    bottomY = bottom.y;
+                }
+                else if (bottom.y == bottomY)
+                {
+                    bottom.Move();
+                    bottomX = bottom.x;
+                    bottomY = bottom.y;
+                }
+
+                if (sheildSpawn == true)
+                {
+                    if (ballRec.IntersectsWith(sheild))
+                    {
+                        sheildHits++;
+
+                        if (sheildHits == 5)
+                        {
+                            sheildSpawn = false;
+                            sheildHits = 0;
+                        }
+                        else
+                        {
+                            ball.SheildCollistion();
+                        }
+                    }
+                }
+            }
         }
-
         public void OnStart()
         {
 
@@ -493,9 +489,10 @@ namespace BrickBreaker
 
             if (sheildSpawn == true)
             {
-                Rectangle sheild = new Rectangle(0, this.Height - 30, this.Width, 20);
-                e.Graphics.FillRectangle(sheildBrush, sheild);
+                Rectangle shield = new Rectangle(0, this.Height - 30, this.Width, 20);
+                e.Graphics.FillRectangle(sheildBrush, shield);
             }
         }
     }
 }
+     

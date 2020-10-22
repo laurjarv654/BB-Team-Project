@@ -1047,23 +1047,25 @@
         ruyWDBgeLEQX2+e52zHgoI8xoIlp/wGp0Ft7MPBkvAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <!--
   <data name="pausedTitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pausedTitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Paddle__smaller_" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAFAAAAAUCAYAAAAa2LrXAAAABGdBTUEAALGPC/xhBQAAAQ5JREFUWEft
-        lTEOwyAQBPMHlykt5QVWeucV7vOO/Ce/dESBdZAFH9xauoJiCmA9Wm3j2/SY9kE/Y0Ajx4DrZzVxf94T
-        Mcq0IH3ovYUruyUDbt+ti/k1w5IoqyH3ee5mHjAImSWRz3M304BRyCpZ8nnuVhwwnGtIYS5l+8I7y8X2
-        VQfMP5QESX6OLrbPc7fTAeWdvO8tKe/kfc3HdLF9TQOGO42U7WO62D71gFG4vJdTKdvHdLF9qgGlkFGy
-        1cd0sX3jJ2L0FQeMwRolKdvnuRscUIa1SCnb57nb34DoAw2lkiirAQ2Ichqu7JYMiMJaUEmU05IPiDJa
-        ruyWDBgeLEQX2+e52zHgoI8xoIlp/wGp0Ft7MPBkvAAAAABJRU5ErkJggg==
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAJVJREFUOE/V
-        0dEJgDAQA9Du4hL+6hSu4BCO4B5uqURaSeNdW0EQA/lq7v00lNL14241PrcnHU7rZrYZrkHaIvwE0pro
-        qyBjw7xk41J5m6EKPukNZMwDsUGtN7490f+CCfH6PchVhMu3J9jy0x7INxeGvA4iNVTL2xuGKIhaEKo7
-        E0TwYMFe0z6e+6nBzZAmHWrjs5EQDlclsYdAa0Y7AAAAAElFTkSuQmCC
-</value>
+      iVBORw0KGgoAAAANSUhEUgAAAFAAAAAUCAYAAAAa2LrXAAAABGdBTUEAALGPC/xhBQAAAQ5JREFUWEft
+      lTEOwyAQBPMHlykt5QVWeucV7vOO/Ce/dESBdZAFH9xauoJiCmA9Wm3j2/SY9kE/Y0Ajx4DrZzVxf94T
+      Mcq0IH3ovYUruyUDbt+ti/k1w5IoqyH3ee5mHjAImSWRz3M304BRyCpZ8nnuVhwwnGtIYS5l+8I7y8X2
+      VQfMP5QESX6OLrbPc7fTAeWdvO8tKe/kfc3HdLF9TQOGO42U7WO62D71gFG4vJdTKdvHdLF9qgGlkFGy
+      1cd0sX3jJ2L0FQeMwRolKdvnuRscUIa1SCnb57nb34DoAw2lkiirAQ2Ichqu7JYMiMJaUEmU05IPiDJa
+      ruyWDBgeLEQX2+e52zHgoI8xoIlp/wGp0Ft7MPBkvAAAAABJRU5ErkJggg==
+      iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAJVJREFUOE/V
+      0dEJgDAQA9Du4hL+6hSu4BCO4B5uqURaSeNdW0EQA/lq7v00lNL14241PrcnHU7rZrYZrkHaIvwE0pro
+      qyBjw7xk41J5m6EKPukNZMwDsUGtN7490f+CCfH6PchVhMu3J9jy0x7INxeGvA4iNVTL2xuGKIhaEKo7
+      E0TwYMFe0z6e+6nBzZAmHWrjs5EQDlclsYdAa0Y7AAAAAElFTkSuQmCC
+    </value>
   </data>
+  -->
   <data name="pausedTitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pausedTitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1628,6 +1630,7 @@
   </data>
   <data name="winnerTitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\winnerTitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="level01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\level01.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>

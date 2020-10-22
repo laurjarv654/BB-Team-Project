@@ -119,7 +119,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackgroundImage = global::BrickBreaker.Properties.Resources.largeGreenBrick;
+            this.pictureBox3.BackgroundImage = global::BrickBreaker.Properties.Resources.greenBrick;
             this.pictureBox3.Location = new System.Drawing.Point(18, 100);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(200, 100);
@@ -129,7 +129,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackgroundImage = global::BrickBreaker.Properties.Resources.largeGreenBrick;
+            this.pictureBox2.BackgroundImage = global::BrickBreaker.Properties.Resources.greenBrick;
             this.pictureBox2.Location = new System.Drawing.Point(832, 100);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(200, 100);

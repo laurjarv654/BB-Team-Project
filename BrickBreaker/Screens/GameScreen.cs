@@ -1,7 +1,7 @@
 ﻿/*  Created by: 
  *  Project: Brick Breaker
  *  Date: 10/21/2020
- */ 
+ */
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,7 +38,7 @@ namespace BrickBreaker
         Boolean ballStart = false;
 
         public static Boolean leftArrowDown, rightArrowDown, escapeKeyDown, pause, gameStart, spaceDown;
-       
+
 
         // Game values
         int lives;
@@ -51,12 +51,12 @@ namespace BrickBreaker
         Paddle paddle;
         Ball ball;
         PowerUp speed, size, bottom;
-       
+
 
         // list of all blocks for current level
         List<Block> blocks = new List<Block>();
         List<PowerUp> powerUps = new List<PowerUp>();
-        
+
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
@@ -81,9 +81,9 @@ namespace BrickBreaker
             OnStart();
         }
 
-        public void BreannaPowerUp ()
+        public void BreannaPowerUp()
         {
-            
+
             Rectangle ballRec = new Rectangle(ball.x, ball.y, ball.size, ball.size);
             Rectangle paddleRec = new Rectangle(paddle.x, paddle.y, paddle.width, paddle.height);
             Rectangle sizeRec = new Rectangle(size.x, size.y, size.size, size.size);
@@ -234,7 +234,7 @@ namespace BrickBreaker
             leftArrowDown = rightArrowDown = false;
 
             // setup starting paddle values and create paddle object
-            
+
             int paddleHeight = 20;
             int paddleX = ((this.Width / 2) - (paddleWidth / 2));
             int paddleY = (this.Height - paddleHeight) - 60;
@@ -255,26 +255,31 @@ namespace BrickBreaker
             #region Creates blocks for generic level. Need to replace with code that loads levels.
 
             //TODO - replace all the code in this region eventually with code that loads levels from xml files
-           XmlReader reader = XmlReader.Create("Resources/level01.xml");
-            while(reader.Read())
+            XmlReader reader = XmlReader.Create("Resources/level01.xml");
+            while (reader.Read())
             {
-                if(reader.NodeType == XmlNodeType.Text)
+                if (reader.NodeType == XmlNodeType.Text)
                 {
-                    x = reader.ToString();
+                    int x = Convert.ToInt32(reader.ToString());
 
                     reader.ReadToNextSibling("y");
-                    y = reader.ReadString; 
+                    int y = Convert.ToInt32(reader.ReadString());
 
+                    reader.ReadToNextSibling("hp");
+                    int hp = Convert.ToInt32(reader.ReadString());
+
+                    Block newBlock = new Block(x, y, hp);
+                    blocks.Add(newBlock);
                 }
             }
 
             blocks.Clear();
-            int x = 10;
-
+            //int x = 10;
+            int testX = 10;
             while (blocks.Count < 15)
             {
-                x += 57;
-                Block b1 = new Block(x, 10, 1, Properties.Resources.greenBrick);
+                testX += 57;
+                Block b1 = new Block(testX, 10, 1);
                 blocks.Add(b1);
             }
 
@@ -338,15 +343,15 @@ namespace BrickBreaker
             if (leftArrowDown && paddle.x > 0)
             {
                 paddle.Move("left");
-                if(ballStart == false)
-                ball.MoveWithPaddle("left");
+                if (ballStart == false)
+                    ball.MoveWithPaddle("left");
             }
             if (rightArrowDown && paddle.x < (this.Width - paddle.width))
             {
                 paddle.Move("right");
 
-                if(ballStart == false)
-                ball.MoveWithPaddle("right");
+                if (ballStart == false)
+                    ball.MoveWithPaddle("right");
             }
 
             // Move ball
@@ -377,7 +382,7 @@ namespace BrickBreaker
                 // Moves the ball back to origin
                 ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
                 ball.y = (this.Height - paddle.height) - 85;
-                
+
                 //Refresh();
                 //Thread.Sleep(1500);
 
@@ -396,7 +401,7 @@ namespace BrickBreaker
                 {
                     blocks.Remove(b);
                     score++;
-                    
+
                     if (blocks.Count == 0)
                     {
                         gameTimer.Enabled = false;
@@ -417,7 +422,7 @@ namespace BrickBreaker
         }
         public void Pause()
         {
-            if(gameTimer.Enabled == true)
+            if (gameTimer.Enabled == true)
             {
 
                 gameTimer.Enabled = false;
@@ -428,7 +433,7 @@ namespace BrickBreaker
                 {
                     gameTimer.Enabled = true;
                 }
-                else if(dr == DialogResult.Abort)   
+                else if (dr == DialogResult.Abort)
                 {
                     Form form = this.FindForm();
                     MenuScreen ms = new MenuScreen();
@@ -446,7 +451,7 @@ namespace BrickBreaker
             Form form = this.FindForm();
 
             MenuScreen ms = new MenuScreen();
-            
+
             ms.Location = new Point((form.Width - ms.Width) / 2, (form.Height - ms.Height) / 2);
 
             form.Controls.Add(ms);
@@ -462,10 +467,10 @@ namespace BrickBreaker
             //    e.Graphics.FillRectangle(powerUpBrush, power.x, power.y, power.size, power.size);
             //}
 
-            e.Graphics.FillRectangle(sizeBrush,size.x, size.y, size.size, size.size);
+            e.Graphics.FillRectangle(sizeBrush, size.x, size.y, size.size, size.size);
             e.Graphics.FillRectangle(speedBrush, speed.x, speed.y, speed.size, speed.size);
             e.Graphics.FillRectangle(sheildBrush, bottom.x, bottom.y, bottom.size, bottom.size);
-            
+
             // Draws paddle
             paddleBrush.Color = paddle.colour;
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
@@ -473,7 +478,12 @@ namespace BrickBreaker
             // Draws blocks
             foreach (Block b in blocks)
             {
-                e.Graphics.DrawImage(Properties.Resources.greenBrick, b.x, b.y, b.width, b.height);
+                if (b.hp == 1)
+                    e.Graphics.DrawImage(Properties.Resources.greenBrick, b.x, b.y, b.width, b.height);
+                if (b.hp == 2)
+                    e.Graphics.DrawImage(Properties.Resources.blueBrick, b.x, b.y, b.width, b.height);
+                if (b.hp == 3)
+                    e.Graphics.DrawImage(Properties.Resources.redBrick, b.x, b.y, b.width, b.height);
             }
 
             if (sheildSpawn == true)

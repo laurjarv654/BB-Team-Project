@@ -101,10 +101,10 @@ namespace BrickBreaker
 
             if (speedRec.IntersectsWith(paddleRec))
             {
-                if (ball.xSpeed > 2 && ball.ySpeed > 2)
+                if (ball.xSpeed >= 2 && ball.ySpeed >= 2)
                 {
-                    ball.xSpeed -= 2;
-                    ball.ySpeed -= 2;
+                    ball.xSpeed--;
+                    ball.ySpeed--;
                 }
             }
 
@@ -262,7 +262,7 @@ namespace BrickBreaker
             while (blocks.Count < 15)
             {
                 x += 57;
-                Block b1 = new Block(x, 10, 1, Color.White);
+                Block b1 = new Block(x, 10, 1, Properties.Resources.greenBrick);
                 blocks.Add(b1);
             }
 

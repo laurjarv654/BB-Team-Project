@@ -381,7 +381,7 @@ namespace BrickBreaker
                 if (ball.BlockCollision(b))
                 {
                     b.hp--;
-                    score++;
+                    score += 100;
                     if(b.hp == 0)
                     {
                         blocks.Remove(b);

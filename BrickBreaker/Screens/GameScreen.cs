@@ -72,6 +72,7 @@ namespace BrickBreaker
 
         //bool for sheild spawn
         bool sheildSpawn = false;
+        bool bigPaddle = false;
         int sheildHits = 0;
 
         int ballX, ballY;
@@ -93,9 +94,12 @@ namespace BrickBreaker
             Rectangle speedRec = new Rectangle(speed.x, speed.y, speed.size, speed.size);
             Rectangle bottomRec = new Rectangle(bottom.x, bottom.y, bottom.size, bottom.size);
             Rectangle sheild = new Rectangle(0, this.Height - 30, this.Width, 20);
-
+            
+            //changes size of paddle
             if (sizeRec.IntersectsWith(paddleRec))
             {
+                bigPaddle = true;
+
                 if (paddleWidth == 80)
                 {
                     paddle.width = 160;
@@ -348,6 +352,7 @@ namespace BrickBreaker
                 lives--;
                 if (paddle.width != 80)
                 {
+                    bigPaddle = false;
                     paddle.width = 80;
                 }
 
@@ -378,7 +383,7 @@ namespace BrickBreaker
             // Check if ball has collided with any blocks
             foreach (Block b in blocks)
             {
-                if (ball.BlockCollision(b))
+                if (ball.BlockCollision(b, blocks))
                 {
                     b.hp--;
                     score += 100;
@@ -476,20 +481,29 @@ namespace BrickBreaker
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
+            //ball
+            e.Graphics.DrawImage(Properties.Resources.ball, ball.x, ball.y, ball.size, ball.size);
 
             //foreach (PowerUp power in powerUps)
             //{
             //    e.Graphics.FillRectangle(powerUpBrush, power.x, power.y, power.size, power.size);
             //}
 
+            //Power ups
             e.Graphics.DrawImage(Properties.Resources.paddlePowerBall, size.x, size.y, size.size, size.size);
             e.Graphics.DrawImage(Properties.Resources.ballPowerBall, speed.x, speed.y, speed.size, speed.size);
             e.Graphics.DrawImage(Properties.Resources.shieldPowerBall, bottom.x, bottom.y, bottom.size, bottom.size);
-            // Draws paddle
-            paddleBrush.Color = paddle.colour;
-            e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
 
+            // Draws paddle
+            if (bigPaddle == true)
+            {
+                e.Graphics.DrawImage(Properties.Resources.longPaddle, paddle.x, paddle.y, paddle.width, paddle.height);
+            }
+            else
+            {
+                e.Graphics.DrawImage(Properties.Resources.Paddle, paddle.x, paddle.y, paddle.width, paddle.height);
+            }
+            
             // Draws blocks
             foreach (Block b in blocks)
             {
@@ -501,10 +515,10 @@ namespace BrickBreaker
                     e.Graphics.DrawImage(Properties.Resources.redBrick, b.x, b.y, b.width, b.height);
             }
 
+            //shield
             if (sheildSpawn == true)
             {
-                Rectangle shield = new Rectangle(0, this.Height - 30, this.Width, 20);
-                e.Graphics.FillRectangle(sheildBrush, shield);
+                e.Graphics.DrawImage(Properties.Resources.shieldPowerUp, 0, this.Height - 30, this.Width, 20);
             }
         }
     }

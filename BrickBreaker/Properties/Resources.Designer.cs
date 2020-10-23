@@ -225,30 +225,35 @@ namespace BrickBreaker.Properties {
         ///    &lt;x&gt;407&lt;/x&gt;
         ///    &lt;y&gt;132&lt;/y&gt;
         ///    &lt;hp&gt;1&lt;/hp&gt;
-        ///    &lt;image&gt;greenBrick&lt;/image&gt;
         ///  &lt;/brick&gt;
         ///  &lt;brick&gt;
         ///    &lt;x&gt;535&lt;/x&gt;
         ///    &lt;y&gt;132&lt;/y&gt;
         ///    &lt;hp&gt;1&lt;/hp&gt;
-        ///    &lt;image&gt;greenBrick&lt;/image&gt;
         ///  &lt;/brick&gt;
         ///  &lt;brick&gt;
         ///    &lt;x&gt;211&lt;/x&gt;
         ///    &lt;y&gt;190&lt;/y&gt;
         ///    &lt;hp&gt;1&lt;/hp&gt;
-        ///    &lt;image&gt;greenBrick&lt;/image&gt;
         ///  &lt;/brick&gt;
         ///  &lt;brick&gt;
         ///    &lt;x&gt;338&lt;/x&gt;
         ///    &lt;y&gt;190&lt;/y&gt;
         ///    &lt;hp&gt;1&lt;/hp&gt;
-        ///    &lt;image&gt;greenBrick&lt;/image&gt;
         ///  &lt;/brick&gt;
         ///  &lt;brick&gt;
         ///    &lt;x&gt;601&lt;/x&gt;
         ///    &lt;y&gt;190&lt;/y&gt;
-        ///    &lt;hp&gt;1&lt;/h [rest of string was truncated]&quot;;.
+        ///    &lt;hp&gt;1&lt;/hp&gt;
+        ///  &lt;/brick&gt;
+        ///  &lt;brick&gt;
+        ///    &lt;x&gt;730&lt;/x&gt;
+        ///    &lt;y&gt;190&lt;/y&gt;
+        ///    &lt;hp&gt;1&lt;/hp&gt;
+        ///  &lt;/brick&gt;
+        ///  &lt;brick&gt;
+        ///    &lt;x&gt;27&lt;/x&gt;
+        ///    &lt;y&gt;251&lt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string level01 {
             get {
@@ -340,6 +345,16 @@ namespace BrickBreaker.Properties {
         internal static string level03 {
             get {
                 return ResourceManager.GetString("level03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap longPaddle {
+            get {
+                object obj = ResourceManager.GetObject("longPaddle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

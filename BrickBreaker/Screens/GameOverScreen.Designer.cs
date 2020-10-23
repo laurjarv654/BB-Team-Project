@@ -34,7 +34,9 @@
             this.playButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.highscoresButton = new System.Windows.Forms.Button();
+            this.arrow = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arrow)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -73,10 +75,11 @@
             this.playButton.Location = new System.Drawing.Point(50, 457);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(198, 79);
-            this.playButton.TabIndex = 2;
+            this.playButton.TabIndex = 1;
             this.playButton.Text = "PLAY AGAIN";
             this.playButton.UseVisualStyleBackColor = false;
             this.playButton.Click += new System.EventHandler(this.playButton_Click);
+            this.playButton.Enter += new System.EventHandler(this.playButton_Enter);
             // 
             // exitButton
             // 
@@ -95,6 +98,7 @@
             this.exitButton.Text = "EXIT";
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            this.exitButton.Enter += new System.EventHandler(this.exitButton_Enter);
             // 
             // highscoresButton
             // 
@@ -109,16 +113,28 @@
             this.highscoresButton.Location = new System.Drawing.Point(296, 457);
             this.highscoresButton.Name = "highscoresButton";
             this.highscoresButton.Size = new System.Drawing.Size(212, 79);
-            this.highscoresButton.TabIndex = 4;
+            this.highscoresButton.TabIndex = 2;
             this.highscoresButton.Text = "HIGHSCORES";
             this.highscoresButton.UseVisualStyleBackColor = false;
             this.highscoresButton.Click += new System.EventHandler(this.highscoresButton_Click);
+            this.highscoresButton.Enter += new System.EventHandler(this.highscoresButton_Enter);
+            // 
+            // arrow
+            // 
+            this.arrow.BackgroundImage = global::BrickBreaker.Properties.Resources.arrow;
+            this.arrow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.arrow.Location = new System.Drawing.Point(571, 387);
+            this.arrow.Name = "arrow";
+            this.arrow.Size = new System.Drawing.Size(118, 65);
+            this.arrow.TabIndex = 5;
+            this.arrow.TabStop = false;
             // 
             // GameOverScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.arrow);
             this.Controls.Add(this.highscoresButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.playButton);
@@ -129,6 +145,7 @@
             this.Name = "GameOverScreen";
             this.Size = new System.Drawing.Size(800, 550);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arrow)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -140,5 +157,6 @@
         private System.Windows.Forms.Button playButton;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button highscoresButton;
+        private System.Windows.Forms.PictureBox arrow;
     }
 }

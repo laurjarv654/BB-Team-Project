@@ -39,7 +39,7 @@ namespace BrickBreaker
 
         public static Boolean leftArrowDown, rightArrowDown, escapeKeyDown, pause, gameStart, spaceDown;
 
-        string level = "01";
+        string level = "02";
 
         // Game values
         int lives;
@@ -385,9 +385,12 @@ namespace BrickBreaker
             {
                 if (ball.BlockCollision(b, blocks))
                 {
-                    blocks.Remove(b);
-                    score++;
-
+                    b.hp--;
+                    score += 100;
+                    if(b.hp == 0)
+                    {
+                        blocks.Remove(b);
+                    }
                     if (blocks.Count == 0)
                     {
                         gameTimer.Enabled = false;

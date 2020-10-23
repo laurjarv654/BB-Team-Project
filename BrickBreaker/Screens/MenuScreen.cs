@@ -55,22 +55,22 @@ namespace BrickBreaker
             hs.Location = new Point((form.Width - hs.Width) / 2, (form.Height - hs.Height) / 2);
         }
 
-        private void playButton_MouseHover(object sender, EventArgs e)
+        private void playButton_Enter(object sender, EventArgs e)
         {
-            playArrow.Location = new Point (136, 489);
+            playArrow.Location = new Point(136, 489);
         }
 
-        private void controlsButton_MouseHover(object sender, EventArgs e)
+        private void controlsButton_Enter(object sender, EventArgs e)
         {
             playArrow.Location = new Point(346, 489);
         }
 
-        private void highscoreButton_MouseHover(object sender, EventArgs e)
+        private void highscoreButton_Enter(object sender, EventArgs e)
         {
             playArrow.Location = new Point(563, 489);
         }
 
-        private void exitButton_MouseHover(object sender, EventArgs e)
+        private void exitButton_Enter(object sender, EventArgs e)
         {
             playArrow.Location = new Point(798, 489);
         }

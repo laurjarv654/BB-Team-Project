@@ -45,23 +45,8 @@ namespace BrickBreaker
         {
             Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
             Rectangle ballRec = new Rectangle(x, y, size, size);
-            Rectangle ballRecSL = new Rectangle(x, y, size, size);
-            Rectangle ballRecSR = new Rectangle(x, y, size, size);
-            Rectangle ballRecSB = new Rectangle(x, y, size, size);
 
             if (ballRec.IntersectsWith(blockRec))
-            {
-                ySpeed *= -1;
-            }
-            if (ballRecSL.IntersectsWith(blockRec))
-            {
-                ySpeed *= -1;
-            }
-            if (ballRecSR.IntersectsWith(blockRec))
-            {
-                ySpeed *= -1;
-            }
-            if (ballRecSB.IntersectsWith(blockRec))
             {
                 ySpeed *= -1;
             }
@@ -72,7 +57,6 @@ namespace BrickBreaker
         {
             Rectangle ballRec = new Rectangle(x + 5, y + 5, size + 5, size + 5);
             Rectangle paddleRec = new Rectangle(p.x + 5, p.y + 5, p.width + 5, p.height + 5);
-            //Rectangle paddleRecSL = new Rectangle(p.x + 10, p.y + 10, p.height, p.width + 20);
             if (ballRec.IntersectsWith(paddleRec))
             {
 

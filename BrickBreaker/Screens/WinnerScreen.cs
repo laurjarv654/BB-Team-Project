@@ -77,5 +77,20 @@ namespace BrickBreaker
         {
             Application.Exit();
         }
+
+        private void playButton_Enter(object sender, EventArgs e)
+        {
+            arrow.Location = new Point(121, 394);
+        }
+
+        private void highscoresButton_Enter(object sender, EventArgs e)
+        {
+            arrow.Location = new Point(353, 395);
+        }
+
+        private void exitButton_Enter(object sender, EventArgs e)
+        {
+            arrow.Location = new Point(583, 395);
+        }
     }
 }

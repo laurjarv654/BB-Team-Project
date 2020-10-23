@@ -256,24 +256,11 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
-            #region Creates blocks for generic level. Need to replace with code that loads levels.
-
-            //TODO - replace all the code in this region eventually with code that loads levels from xml files
-
+            //clears blocks
             blocks.Clear();
+            
+            //loads levels
             LoadLevel();
-            ////int x = 10;
-            //int testX = 10;
-            //while (blocks.Count < 15)
-            //{
-
-            //    testX += 87;
-            //    Block b1 = new Block(testX, 10, 1);
-
-            //    blocks.Add(b1);
-            //}
-
-            #endregion
 
             // start the game engine loop
             gameTimer.Enabled = true;

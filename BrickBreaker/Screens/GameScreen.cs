@@ -72,6 +72,7 @@ namespace BrickBreaker
 
         //bool for sheild spawn
         bool sheildSpawn = false;
+        bool bigPaddle = false;
         int sheildHits = 0;
 
         int ballX, ballY;
@@ -93,9 +94,12 @@ namespace BrickBreaker
             Rectangle speedRec = new Rectangle(speed.x, speed.y, speed.size, speed.size);
             Rectangle bottomRec = new Rectangle(bottom.x, bottom.y, bottom.size, bottom.size);
             Rectangle sheild = new Rectangle(0, this.Height - 30, this.Width, 20);
-
+            
+            //changes size of paddle
             if (sizeRec.IntersectsWith(paddleRec))
             {
+                bigPaddle = true;
+
                 if (paddleWidth == 80)
                 {
                     paddle.width = 160;
@@ -348,6 +352,7 @@ namespace BrickBreaker
                 lives--;
                 if (paddle.width != 80)
                 {
+                    bigPaddle = false;
                     paddle.width = 80;
                 }
 
@@ -487,9 +492,15 @@ namespace BrickBreaker
             e.Graphics.DrawImage(Properties.Resources.shieldPowerBall, bottom.x, bottom.y, bottom.size, bottom.size);
 
             // Draws paddle
-            paddleBrush.Color = paddle.colour;
-            e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
-
+            if (bigPaddle == true)
+            {
+                e.Graphics.DrawImage(Properties.Resources.longPaddle, paddle.x, paddle.y, paddle.width, paddle.height);
+            }
+            else
+            {
+                e.Graphics.DrawImage(Properties.Resources.Paddle, paddle.x, paddle.y, paddle.width, paddle.height);
+            }
+            
             // Draws blocks
             foreach (Block b in blocks)
             {

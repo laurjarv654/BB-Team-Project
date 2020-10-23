@@ -39,7 +39,7 @@ namespace BrickBreaker
 
         public static Boolean leftArrowDown, rightArrowDown, escapeKeyDown, pause, gameStart, spaceDown;
 
-        string level = "03";
+        string level = "01";
 
         // Game values
         int lives;

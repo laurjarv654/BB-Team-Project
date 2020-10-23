@@ -21,7 +21,6 @@ namespace BrickBreaker
         {
             Application.Exit();
         }
-
         private void playButton_Click(object sender, EventArgs e)
         {
             // Goes to the game screen
@@ -54,6 +53,26 @@ namespace BrickBreaker
             form.Controls.Remove(this);
 
             hs.Location = new Point((form.Width - hs.Width) / 2, (form.Height - hs.Height) / 2);
+        }
+
+        private void playButton_MouseHover(object sender, EventArgs e)
+        {
+            playArrow.Location = new Point (136, 489);
+        }
+
+        private void controlsButton_MouseHover(object sender, EventArgs e)
+        {
+            playArrow.Location = new Point(346, 489);
+        }
+
+        private void highscoreButton_MouseHover(object sender, EventArgs e)
+        {
+            playArrow.Location = new Point(563, 489);
+        }
+
+        private void exitButton_MouseHover(object sender, EventArgs e)
+        {
+            playArrow.Location = new Point(798, 489);
         }
     }
 }

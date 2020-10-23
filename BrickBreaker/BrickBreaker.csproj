@@ -276,7 +276,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Resources\level03.xml" />
+    <None Include="bin\Debug\Resources\level03.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\arrow.png" />

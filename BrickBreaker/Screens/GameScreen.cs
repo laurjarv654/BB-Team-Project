@@ -378,7 +378,7 @@ namespace BrickBreaker
             // Check if ball has collided with any blocks
             foreach (Block b in blocks)
             {
-                if (ball.BlockCollision(b))
+                if (ball.BlockCollision(b, blocks))
                 {
                     blocks.Remove(b);
                     score++;
@@ -473,16 +473,19 @@ namespace BrickBreaker
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
+            //ball
+            e.Graphics.DrawImage(Properties.Resources.ball, ball.x, ball.y, ball.size, ball.size);
 
             //foreach (PowerUp power in powerUps)
             //{
             //    e.Graphics.FillRectangle(powerUpBrush, power.x, power.y, power.size, power.size);
             //}
 
+            //Power ups
             e.Graphics.DrawImage(Properties.Resources.paddlePowerBall, size.x, size.y, size.size, size.size);
             e.Graphics.DrawImage(Properties.Resources.ballPowerBall, speed.x, speed.y, speed.size, speed.size);
             e.Graphics.DrawImage(Properties.Resources.shieldPowerBall, bottom.x, bottom.y, bottom.size, bottom.size);
+
             // Draws paddle
             paddleBrush.Color = paddle.colour;
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
@@ -498,10 +501,10 @@ namespace BrickBreaker
                     e.Graphics.DrawImage(Properties.Resources.redBrick, b.x, b.y, b.width, b.height);
             }
 
+            //shield
             if (sheildSpawn == true)
             {
-                Rectangle shield = new Rectangle(0, this.Height - 30, this.Width, 20);
-                e.Graphics.FillRectangle(sheildBrush, shield);
+                e.Graphics.DrawImage(Properties.Resources.shieldPowerUp, 0, this.Height - 30, this.Width, 20);
             }
         }
     }

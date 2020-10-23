@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -40,7 +41,7 @@ namespace BrickBreaker
             y = y - ySpeed;
         }
 
-        public bool BlockCollision(Block b)
+        public bool BlockCollision(Block b, List<Block> blocks)
         {
             Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
             Rectangle ballRec = new Rectangle(x, y, size, size);

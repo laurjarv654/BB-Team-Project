@@ -58,6 +58,9 @@ namespace BrickBreaker
         List<Block> blocks = new List<Block>();
         List<PowerUp> powerUps = new List<PowerUp>();
 
+        //list of high scores
+        List<HighScore> highScore = new List<HighScore>();
+
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);

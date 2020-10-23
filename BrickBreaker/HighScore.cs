@@ -14,7 +14,6 @@ namespace BrickBreaker
         {
             name = _name;
             score = _score;
-
         }
     }
 }

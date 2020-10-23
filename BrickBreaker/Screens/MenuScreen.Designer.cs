@@ -62,7 +62,6 @@
             this.playButton.UseVisualStyleBackColor = false;
             this.playButton.Click += new System.EventHandler(this.playButton_Click);
             this.playButton.Enter += new System.EventHandler(this.playButton_Enter);
-            this.playButton.MouseHover += new System.EventHandler(this.playButton_MouseHover);
             // 
             // exitButton
             // 
@@ -84,7 +83,6 @@
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             this.exitButton.Enter += new System.EventHandler(this.exitButton_Enter);
-            this.exitButton.MouseHover += new System.EventHandler(this.exitButton_MouseHover);
             // 
             // controlsButton
             // 
@@ -106,7 +104,6 @@
             this.controlsButton.UseVisualStyleBackColor = false;
             this.controlsButton.Click += new System.EventHandler(this.controlsButton_Click);
             this.controlsButton.Enter += new System.EventHandler(this.controlsButton_Enter);
-            this.controlsButton.MouseHover += new System.EventHandler(this.controlsButton_MouseHover);
             // 
             // highscoreButton
             // 
@@ -129,7 +126,6 @@
             this.highscoreButton.UseVisualStyleBackColor = false;
             this.highscoreButton.Click += new System.EventHandler(this.highscoreButton_Click);
             this.highscoreButton.Enter += new System.EventHandler(this.highscoreButton_Enter);
-            this.highscoreButton.MouseHover += new System.EventHandler(this.highscoreButton_MouseHover);
             // 
             // pictureBox3
             // 

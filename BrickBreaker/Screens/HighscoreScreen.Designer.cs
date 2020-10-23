@@ -39,13 +39,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
-
             // highscoresLabel1
             // 
             this.highscoresLabel1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.highscoresLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(63)))), ((int)(((byte)(33)))));
             this.highscoresLabel1.Location = new System.Drawing.Point(94, 224);
-
             this.highscoresLabel1.Name = "highscoresLabel1";
             this.highscoresLabel1.Size = new System.Drawing.Size(280, 232);
             this.highscoresLabel1.TabIndex = 6;
@@ -61,9 +59,9 @@
             this.returnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.returnButton.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.returnButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(63)))), ((int)(((byte)(33)))));
-            this.returnButton.Location = new System.Drawing.Point(622, 477);
+            this.returnButton.Location = new System.Drawing.Point(630, 488);
             this.returnButton.Name = "returnButton";
-            this.returnButton.Size = new System.Drawing.Size(134, 62);
+            this.returnButton.Size = new System.Drawing.Size(151, 62);
             this.returnButton.TabIndex = 8;
             this.returnButton.Text = "RETURN\r\n";
             this.returnButton.UseVisualStyleBackColor = false;
@@ -72,10 +70,8 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::BrickBreaker.Properties.Resources.highscoreBorder;
-
-pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(33, 155);
-
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(731, 337);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -86,9 +82,7 @@ pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             // 
             this.pictureBox1.BackgroundImage = global::BrickBreaker.Properties.Resources.highscoresTitle;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-
             this.pictureBox1.Location = new System.Drawing.Point(12, 17);
-
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(575, 97);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -99,7 +93,7 @@ pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             // 
             this.pictureBox3.BackgroundImage = global::BrickBreaker.Properties.Resources.greenBrick;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(804, 21);
+            this.pictureBox3.Location = new System.Drawing.Point(593, 5);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(204, 109);
             this.pictureBox3.TabIndex = 9;
@@ -109,9 +103,9 @@ pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             // 
             this.highscoresLabel2.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.highscoresLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(63)))), ((int)(((byte)(33)))));
-            this.highscoresLabel2.Location = new System.Drawing.Point(577, 224);
+            this.highscoresLabel2.Location = new System.Drawing.Point(448, 224);
             this.highscoresLabel2.Name = "highscoresLabel2";
-            this.highscoresLabel2.Size = new System.Drawing.Size(374, 285);
+            this.highscoresLabel2.Size = new System.Drawing.Size(280, 232);
             this.highscoresLabel2.TabIndex = 10;
             this.highscoresLabel2.Text = "0\r\n\r\n0\r\n\r\n0\r\n\r\n0\r\n\r\n0";
             // 

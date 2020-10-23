@@ -47,6 +47,7 @@ namespace BrickBreaker
             Rectangle ballRecSL = new Rectangle(x, y, size, size);
             Rectangle ballRecSR = new Rectangle(x, y, size, size);
             Rectangle ballRecSB = new Rectangle(x, y, size, size);
+
             if (ballRec.IntersectsWith(blockRec))
             {
                 ySpeed *= -1;

@@ -39,6 +39,7 @@ namespace BrickBreaker
 
         public static Boolean leftArrowDown, rightArrowDown, escapeKeyDown, pause, gameStart, spaceDown;
 
+        string level = "01";
 
         // Game values
         int lives;
@@ -95,7 +96,7 @@ namespace BrickBreaker
             {
                 if (paddleWidth == 80)
                 {
-                    paddle.width = 116;
+                    paddle.width = 160;
                 }
             }
 
@@ -256,36 +257,19 @@ namespace BrickBreaker
             #region Creates blocks for generic level. Need to replace with code that loads levels.
 
             //TODO - replace all the code in this region eventually with code that loads levels from xml files
-            //XmlReader reader = XmlReader.Create("Resources/level01.xml");
-            XmlTextReader reader = new XmlTextReader("Resources/level01.xml");
-            while (reader.Read())
-            {
-                if (reader.NodeType == XmlNodeType.Text)
-                {
-                    int x = Convert.ToInt16(reader.ToString());
-
-                    reader.ReadToNextSibling("y");
-                    int y = Convert.ToInt32(reader.ReadString());
-
-                    reader.ReadToNextSibling("hp");
-                    int hp = Convert.ToInt32(reader.ReadString());
-
-                    Block newBlock = new Block(x, y, hp);
-                    blocks.Add(newBlock);
-                }
-            }
 
             blocks.Clear();
-            //int x = 10;
-            int testX = 10;
-            while (blocks.Count < 15)
-            {
+            LoadLevel();
+            ////int x = 10;
+            //int testX = 10;
+            //while (blocks.Count < 15)
+            //{
 
-                testX += 57;
-                Block b1 = new Block(testX, 10, 1);
+            //    testX += 87;
+            //    Block b1 = new Block(testX, 10, 1);
 
-                blocks.Add(b1);
-            }
+            //    blocks.Add(b1);
+            //}
 
             #endregion
 
@@ -340,8 +324,6 @@ namespace BrickBreaker
         private void gameTimer_Tick(object sender, EventArgs e)
         {
             BreannaPowerUp();
-
-
 
             // Move the paddle
             if (leftArrowDown && paddle.x > 0)
@@ -428,6 +410,27 @@ namespace BrickBreaker
             {
                 Thread.Sleep(1500);
                 gameStart = false;
+            }
+        }
+        public void LoadLevel()
+        {
+            //XmlReader reader = XmlReader.Create("Resources/level01.xml");
+            XmlTextReader reader = new XmlTextReader("Resources/level" + level +".xml");
+            while (reader.Read())
+            {
+                if (reader.NodeType == XmlNodeType.Text)
+                {
+                    int x = Convert.ToInt16(reader.ReadString());
+
+                    reader.ReadToNextSibling("y");
+                    int y = Convert.ToInt32(reader.ReadString());
+
+                    reader.ReadToNextSibling("hp");
+                    int hp = Convert.ToInt32(reader.ReadString());
+
+                    Block newBlock = new Block(x, y, hp);
+                    blocks.Add(newBlock);
+                }
             }
         }
         public void Pause()

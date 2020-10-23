@@ -71,7 +71,6 @@ namespace BrickBreaker
         bool sheildSpawn = false;
         int sheildHits = 0;
 
-
         int ballX, ballY;
         int ballSize = 20;
 

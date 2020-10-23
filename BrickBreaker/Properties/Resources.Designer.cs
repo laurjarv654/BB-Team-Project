@@ -247,6 +247,93 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;level&gt;
+        ///  &lt;Block&gt;
+        ///    &lt;x&gt;459&lt;/x&gt;
+        ///    &lt;y&gt;3&lt;/y&gt;
+        ///    &lt;hp&gt;2&lt;/hp&gt;
+        ///  &lt;/Block&gt;
+        ///  &lt;Block&gt;
+        ///    &lt;x&gt;18&lt;/x&gt;
+        ///    &lt;y&gt;71&lt;/y&gt;
+        ///    &lt;hp&gt;1&lt;/hp&gt;
+        ///  &lt;/Block&gt;
+        ///  &lt;Block&gt;
+        ///    &lt;x&gt;239&lt;/x&gt;
+        ///    &lt;y&gt;71&lt;/y&gt;
+        ///    &lt;hp&gt;2&lt;/hp&gt;
+        ///  &lt;/Block&gt;
+        ///  &lt;Block&gt;
+        ///    &lt;x&gt;459&lt;/x&gt;
+        ///    &lt;y&gt;71&lt;/y&gt;
+        ///    &lt;hp&gt;2&lt;/hp&gt;
+        ///  &lt;/Block&gt;
+        ///  &lt;Block&gt;
+        ///    &lt;x&gt;638&lt;/x&gt;
+        ///    &lt;y&gt;71&lt;/y&gt;
+        ///    &lt;hp&gt;2&lt;/hp&gt;
+        ///  &lt;/Block&gt;
+        ///  &lt;Block&gt;
+        ///    &lt;x&gt;906&lt;/x&gt;
+        ///    &lt;y&gt;71&lt;/y&gt;
+        ///    &lt;hp&gt;1&lt;/hp&gt;
+        ///  &lt;/Block&gt;
+        ///  &lt;Block&gt;
+        ///    &lt;x&gt;125&lt;/x&gt;
+        ///    &lt;y&gt;129&lt;/y&gt;
+        ///   [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string level02 {
+            get {
+                return ResourceManager.GetString("level02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;level&gt;
+        ///  &lt;Block&gt;
+        ///    &lt;x&gt;361&lt;/x&gt;
+        ///    &lt;y&gt;111&lt;/y&gt;
+        ///    &lt;hp&gt;3&lt;/hp&gt;
+        ///  &lt;/Block&gt;
+        ///  &lt;Block&gt;
+        ///    &lt;x&gt;557&lt;/x&gt;
+        ///    &lt;y&gt;111&lt;/y&gt;
+        ///    &lt;hp&gt;3&lt;/hp&gt;
+        ///  &lt;/Block&gt;
+        ///  &lt;Block&gt;
+        ///    &lt;x&gt;251&lt;/x&gt;
+        ///    &lt;y&gt;165&lt;/y&gt;
+        ///    &lt;hp&gt;3&lt;/hp&gt;
+        ///  &lt;/Block&gt;
+        ///  &lt;Block&gt;
+        ///    &lt;x&gt;460&lt;/x&gt;
+        ///    &lt;y&gt;165&lt;/y&gt;
+        ///    &lt;hp&gt;3&lt;/hp&gt;
+        ///  &lt;/Block&gt;
+        ///  &lt;Block&gt;
+        ///    &lt;x&gt;665&lt;/x&gt;
+        ///    &lt;y&gt;165&lt;/y&gt;
+        ///    &lt;hp&gt;3&lt;/hp&gt;
+        ///  &lt;/Block&gt;
+        ///  &lt;Block&gt;
+        ///    &lt;x&gt;50&lt;/x&gt;
+        ///    &lt;y&gt;219&lt;/y&gt;
+        ///    &lt;hp&gt;2&lt;/hp&gt;
+        ///  &lt;/Block&gt;
+        ///  &lt;Block&gt;
+        ///    &lt;x&gt;184&lt;/x&gt;
+        ///    &lt;y&gt;219&lt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string level03 {
+            get {
+                return ResourceManager.GetString("level03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream Lose {

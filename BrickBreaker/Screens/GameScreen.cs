@@ -493,10 +493,9 @@ namespace BrickBreaker
             //    e.Graphics.FillRectangle(powerUpBrush, power.x, power.y, power.size, power.size);
             //}
 
-            e.Graphics.FillRectangle(sizeBrush, size.x, size.y, size.size, size.size);
-            e.Graphics.FillRectangle(speedBrush, speed.x, speed.y, speed.size, speed.size);
-            e.Graphics.FillRectangle(sheildBrush, bottom.x, bottom.y, bottom.size, bottom.size);
-
+            e.Graphics.DrawImage(Properties.Resources.paddlePowerBall, size.x, size.y, size.size, size.size);
+            e.Graphics.DrawImage(Properties.Resources.ballPowerBall, speed.x, speed.y, speed.size, speed.size);
+            e.Graphics.DrawImage(Properties.Resources.shieldPowerBall, bottom.x, bottom.y, bottom.size, bottom.size);
             // Draws paddle
             paddleBrush.Color = paddle.colour;
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);

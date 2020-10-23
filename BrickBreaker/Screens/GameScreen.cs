@@ -59,7 +59,7 @@ namespace BrickBreaker
         List<PowerUp> powerUps = new List<PowerUp>();
 
         //list of high scores
-        List<HighScore> highScore = new List<HighScore>();
+        List<HighScore> highScore = new List<HighScore>(); 
 
 
         // Brushes
@@ -399,7 +399,7 @@ namespace BrickBreaker
                     if (blocks.Count == 0)
                     {
                         gameTimer.Enabled = false;
-                        OnEnd();
+                        Win();
                     }
                     break;
                 }
@@ -460,16 +460,27 @@ namespace BrickBreaker
                 }
             }
         }
+        public void Win()
+        {
+            Form form = this.FindForm();
+
+            WinnerScreen ws = new WinnerScreen();
+
+            ws.Location = new Point((form.Width - ws.Width) / 2, (form.Height - ws.Height) / 2);
+
+            form.Controls.Add(ws);
+            form.Controls.Remove(this);
+        }
         public void OnEnd()
         {
             // Goes to the game over screen
             Form form = this.FindForm();
 
-            MenuScreen ms = new MenuScreen();
+            GameOverScreen gos = new GameOverScreen();
 
-            ms.Location = new Point((form.Width - ms.Width) / 2, (form.Height - ms.Height) / 2);
+            gos.Location = new Point((form.Width - gos.Width) / 2, (form.Height - gos.Height) / 2);
 
-            form.Controls.Add(ms);
+            form.Controls.Add(gos);
             form.Controls.Remove(this);
         }
 
